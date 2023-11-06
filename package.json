@@ -9,6 +9,33 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newslaundry/newsable-react.git"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "accessibility",
+    "design system"
+  ],
+  "author": "Rishabh Dixit <rishabh@newslaundry.com>",
+  "license": "Apache-2.0",
+  "sideEffects": [
+    "*.css"
+  ],
+  "bugs": {
+    "url": "https://github.com/newslaundry/newsable-react/issues"
+  },
+  "homepage": "https://github.com/newslaundry/newsable-react#readme",
   "scripts": {
     "prepare": "husky install",
     "test": "vitest",
@@ -22,23 +49,19 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "files": [
-    "dist/**"
-  ],
-  "keywords": [],
-  "author": "Rishabh Dixit <rishabh@newslaundry.com>",
-  "license": "Apache-2.0",
   "peerDependencies": {
     "react": "^18 || ^16",
     "react-dom": "^18 || ^16"
   },
   "dependencies": {
-    "lucide-react": "^0.291.0"
+    "lucide-react": "^0.292.0"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
-    "@newsable/tailwind-preset": "^1.0.0",
+    "@newsable/tailwind-preset": "^1.0.3",
     "@storybook/addon-a11y": "^7.5.2",
     "@storybook/addon-essentials": "^7.5.2",
     "@storybook/addon-interactions": "^7.5.2",
@@ -52,28 +75,34 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+    "@types/jest-axe": "^3.5.7",
     "@types/node": "^20.8.10",
-    "@types/react": "^18.2.33",
+    "@types/react": "^18.2.35",
     "@types/react-dom": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
+    "@vitejs/plugin-react": "^4.1.1",
     "autoprefixer": "^10.4.16",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "eslint": "^8.52.0",
+    "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "eslint-plugin-testing-library": "^6.1.0",
     "husky": "^8.0.3",
+    "jest-axe": "^8.0.0",
+    "jsdom": "^22.1.0",
     "lint-staged": "^15.0.2",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "resize-observer-polyfill": "^1.5.1",
     "storybook": "^7.5.2",
     "tailwind-merge": "^2.0.0",
     "tailwindcss": "^3.3.5",

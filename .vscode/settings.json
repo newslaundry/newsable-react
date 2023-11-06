@@ -3,4 +3,9 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.formatOnSave": true,
   "svg.preview.background": "transparent"
+  // "tailwindCSS.experimental.classRegex": [
+  //   ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  //   ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+  //   ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  // ]
 }
