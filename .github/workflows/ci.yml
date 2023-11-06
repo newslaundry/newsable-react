@@ -61,11 +61,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
-
-      - name: Remove Husky
-        run: npm pkg delete scripts.prepare
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
