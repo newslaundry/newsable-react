@@ -1,5 +1,19 @@
 # @newsable/react
 
+## 0.2.0
+
+### Minor Changes
+
+- [#3](https://github.com/newslaundry/newsable-react/pull/3) [`51627bc`](https://github.com/newslaundry/newsable-react/commit/51627bc4ea0fd85aa15e9228553e71f386326294) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New Dialog primitive
+
+- [#3](https://github.com/newslaundry/newsable-react/pull/3) [`51627bc`](https://github.com/newslaundry/newsable-react/commit/51627bc4ea0fd85aa15e9228553e71f386326294) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New Link primitive
+
+- [#3](https://github.com/newslaundry/newsable-react/pull/3) [`66e11e5`](https://github.com/newslaundry/newsable-react/commit/66e11e5f54596decb0d92ffd17991c3cffa7c874) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New Text and Heading primitive
+
+- [#3](https://github.com/newslaundry/newsable-react/pull/3) [`dce4c39`](https://github.com/newslaundry/newsable-react/commit/dce4c39316aa0f66aebc341fa4d6ef79c57a0c27) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New Accordion primitive
+
+- [#3](https://github.com/newslaundry/newsable-react/pull/3) [`51627bc`](https://github.com/newslaundry/newsable-react/commit/51627bc4ea0fd85aa15e9228553e71f386326294) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New Alert Dialog primitive
+
 ## 0.1.0
 
 ### Minor Changes
