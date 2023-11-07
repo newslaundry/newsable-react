@@ -10,18 +10,7 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      options: [
-        "primary",
-        "primary-inverted",
-        "secondary",
-        "secondary-inverted",
-        "success",
-        "success-inverted",
-        "attention",
-        "attention-inverted",
-        "danger",
-        "danger-inverted"
-      ],
+      options: ["primary", "secondary", "success", "attention", "danger", "outline", "ghost"],
       control: { type: "radio" },
       defaultValue: "primary",
       description: "The type of the Button component"
@@ -74,6 +63,22 @@ export const Attention: Story = {
 export const Danger: Story = {
   args: {
     variant: "danger",
+    size: "md"
+  },
+  render: args => <Button {...args}>Button</Button>
+};
+
+export const Outline: Story = {
+  args: {
+    variant: "outline",
+    size: "md"
+  },
+  render: args => <Button {...args}>Button</Button>
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: "ghost",
     size: "md"
   },
   render: args => <Button {...args}>Button</Button>
