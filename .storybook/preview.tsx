@@ -22,7 +22,8 @@ const preview: Preview = {
   decorators: [
     (Story: StoryFn) => (
       <div
-        className={`flex min-h-screen w-full items-center justify-center bg-primary-default font-sans text-primary-default`}
+        // className={`min-h-screen w-full bg-primary-default font-sans text-primary-default`}
+        className={`flex h-full w-full items-center justify-center bg-primary-default font-sans text-primary-default`}
       >
         <Story />
       </div>
