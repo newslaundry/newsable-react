@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 0.3.0
+
+### Minor Changes
+
+- [#5](https://github.com/newslaundry/newsable-react/pull/5) [`81220b8`](https://github.com/newslaundry/newsable-react/commit/81220b8b7c6c8466e96150dc0b2528f7b75e93ac) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New Avatar, Aspect Ratio, Button Group, Separator, Story Card, H-Stack, V-Stack and Grid primitives
+
 ## 0.2.0
 
 ### Minor Changes
