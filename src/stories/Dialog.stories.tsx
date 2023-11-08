@@ -17,7 +17,7 @@ export const Primary: Story = {
   render: () => (
     <Dialog>
       <Dialog.Trigger asChild>
-        <Button variant="primary">Open modal</Button>
+        <Button variant="ghost">Open modal</Button>
       </Dialog.Trigger>
       <Dialog.Content>
         <Dialog.Title>Are you sure you want to take this action?</Dialog.Title>

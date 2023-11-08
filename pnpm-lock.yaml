@@ -29,6 +29,9 @@ dependencies:
   "@radix-ui/react-dropdown-menu":
     specifier: ^2.0.6
     version: 2.0.6(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
+  "@radix-ui/react-separator":
+    specifier: ^1.0.3
+    version: 1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
   lucide-react:
     specifier: ^0.292.0
     version: 0.292.0(react@18.2.0)
@@ -3903,7 +3906,6 @@ packages:
       "@types/react-dom": 18.2.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: true
 
   /@radix-ui/react-slot@1.0.2(@types/react@18.2.35)(react@18.2.0):
     resolution:

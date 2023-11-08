@@ -11,7 +11,7 @@ const defaultProps = {
   children: (
     <>
       <Dialog.Trigger asChild>
-        <Button variant="primary">Open modal</Button>
+        <Button>Open modal</Button>
       </Dialog.Trigger>
       <Dialog.Content>
         <Dialog.Title>Are you sure you want to take this action?</Dialog.Title>
@@ -138,14 +138,14 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
     render(
       <Dialog>
         <Dialog.Trigger asChild>
-          <Button variant="primary">Open modal</Button>
+          <Button>Open modal</Button>
         </Dialog.Trigger>
         <Dialog.Content>
           <Dialog.Title>Are you sure you want to take this action?</Dialog.Title>
           <Dialog.Description>
             This action cannot be undone. This will permanently perform the action and all the data will be
             affected.
-            <Button variant="primary">Cancel</Button>
+            <Button>Cancel</Button>
             <Button variant="danger">Yes, continue</Button>
           </Dialog.Description>
         </Dialog.Content>
@@ -165,14 +165,14 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
     render(
       <Dialog>
         <Dialog.Trigger asChild>
-          <Button variant="primary">Open modal</Button>
+          <Button>Open modal</Button>
         </Dialog.Trigger>
         <Dialog.Content>
           <Dialog.Title>Are you sure you want to take this action?</Dialog.Title>
           <Dialog.Description>
             This action cannot be undone. This will permanently perform the action and all the data will be
             affected.
-            <Button variant="primary">Cancel</Button>
+            <Button>Cancel</Button>
             <Button variant="danger">Yes, continue</Button>
           </Dialog.Description>
         </Dialog.Content>

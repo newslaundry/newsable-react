@@ -11,7 +11,7 @@ const defaultProps = {
   children: (
     <>
       <AlertDialog.Trigger asChild>
-        <Button variant="secondary">Open</Button>
+        <Button variant="accent">Open</Button>
       </AlertDialog.Trigger>
       <AlertDialog.Content>
         <AlertDialog.Title>Are you sure absolutely sure?</AlertDialog.Title>
@@ -21,7 +21,7 @@ const defaultProps = {
         </AlertDialog.Description>
         <AlertDialog.Footer>
           <AlertDialog.Cancel asChild>
-            <Button variant="primary">Cancel</Button>
+            <Button variant="neutral">Cancel</Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action asChild>
             <Button variant="danger">Yes, continue</Button>
