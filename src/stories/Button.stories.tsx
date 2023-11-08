@@ -9,15 +9,15 @@ const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     variant: {
-      options: ["primary", "secondary", "success", "attention", "danger", "outline", "ghost"],
+      options: ["neutral", "accent", "success", "attention", "danger", "outline", "ghost"],
       control: { type: "radio" },
-      defaultValue: "primary",
+      defaultValue: "neutral",
       description: "The type of the Button component"
     },
     size: {
-      options: ["sm", "md", "lg"],
+      options: ["sm", "base", "lg"],
       control: { type: "radio" },
-      defaultValue: "md",
+      defaultValue: "base",
       description: "The size of the Button component"
     }
   }
@@ -29,16 +29,16 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    variant: "primary",
-    size: "md"
+    variant: "neutral",
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
-    size: "md"
+    variant: "accent",
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };
@@ -46,7 +46,7 @@ export const Secondary: Story = {
 export const Success: Story = {
   args: {
     variant: "success",
-    size: "md"
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };
@@ -54,7 +54,7 @@ export const Success: Story = {
 export const Attention: Story = {
   args: {
     variant: "attention",
-    size: "md"
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };
@@ -62,7 +62,7 @@ export const Attention: Story = {
 export const Danger: Story = {
   args: {
     variant: "danger",
-    size: "md"
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };
@@ -70,7 +70,7 @@ export const Danger: Story = {
 export const Outline: Story = {
   args: {
     variant: "outline",
-    size: "md"
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };
@@ -78,7 +78,7 @@ export const Outline: Story = {
 export const Ghost: Story = {
   args: {
     variant: "ghost",
-    size: "md"
+    size: "base"
   },
   render: args => <Button {...args}>Button</Button>
 };

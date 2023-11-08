@@ -10,9 +10,9 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
+        neutral:
           "border border-primary-default bg-component-primary-default text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed",
-        secondary:
+        accent:
           "border border-accent-default bg-component-accent-default text-accent-muted focus-ring-accent hover:bg-component-accent-hover active:bg-component-accent-pressed",
         danger:
           "border border-danger-default bg-component-danger-default text-danger-muted focus-ring-danger hover:bg-component-danger-hover active:bg-component-danger-pressed",
@@ -23,17 +23,17 @@ export const buttonVariants = cva(
         outline:
           "border border-primary-default bg-transparent text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed",
         ghost:
-          "border-0 text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed"
+          "border border-transparent text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed"
       },
       size: {
         sm: "text-sm font-normal component-padding-sm",
-        md: "text-base font-medium component-padding-base",
+        base: "text-base font-medium component-padding-base",
         lg: "text-lg font-medium component-padding-lg"
       }
     },
     defaultVariants: {
-      variant: "primary",
-      size: "md"
+      variant: "neutral",
+      size: "base"
     }
   }
 );
