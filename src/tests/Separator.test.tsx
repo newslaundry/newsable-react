@@ -8,7 +8,7 @@ import { checkAccessibility } from "@/utils/accessibility";
 
 describe("Separator component tests:", () => {
   checkAccessibility(<Separator />);
-  checkAccessibility(<Separator decorative orientation="vertical" variant="secondary" />);
+  checkAccessibility(<Separator decorative orientation="vertical" variant="neutral" />);
 });
 
 describe("Accessibility Testing (WAI-ARIA Roles, States, and Properties):", () => {
