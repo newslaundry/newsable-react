@@ -45,7 +45,7 @@ const StoryCardImage = React.forwardRef<HTMLImageElement, StoryCardImageProps>(
 
     return (
       <Link href={storyData.slug} className="mb-2 w-full">
-        <AspectRatio className="" ratio={16 / 9}>
+        <AspectRatio ratio={16 / 9}>
           <img
             ref={forwardedRef}
             src={`https://gumlet.assettype.com/${storyData["hero-image-s3-key"]}?auto=format%2Ccompress&format=webp&w=700&dpr=2.0`}
