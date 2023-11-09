@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 1.0.1
+
+### Patch Changes
+
+- [`3e2fba9`](https://github.com/newslaundry/newsable-react/commit/3e2fba9a6241044432614386ec1289944ff32f58) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - fixes in storycard primitive and tsup config
+
 ## 1.0.0
 
 ### Major Changes
