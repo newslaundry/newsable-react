@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 1.0.0
+
+### Major Changes
+
+- [#7](https://github.com/newslaundry/newsable-react/pull/7) [`b77b5ef`](https://github.com/newslaundry/newsable-react/commit/b77b5ef840dc16d16b270851032871978dc22150) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - Added multiple new primitives
+
 ## 0.3.0
 
 ### Minor Changes
