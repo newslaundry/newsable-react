@@ -2,10 +2,10 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-type ContainerWidth = "7xl" | "6xl" | "5xl" | "4xl" | "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "sm";
+// type ContainerWidth = "7xl" | "6xl" | "5xl" | "4xl" | "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "sm";
 
 export interface ContainerBaseProps extends React.ComponentPropsWithoutRef<"div"> {
-  maxWidth?: ContainerWidth;
+  // maxWidth?: ContainerWidth;
 }
 
 const Container = React.forwardRef<HTMLDivElement, ContainerBaseProps>(
