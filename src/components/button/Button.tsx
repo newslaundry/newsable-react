@@ -1,10 +1,13 @@
 import React from "react";
 
+import "@radix-ui/react-accordion";
+
 import { VariantProps, cva } from "class-variance-authority";
 import { Loader2 as Spinner } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+// ! TO FIX - variants are not getting exported
 export const buttonVariants = cva(
   "pointer-events-auto flex cursor-pointer items-center justify-center gap-2 rounded outline-none transition-all disabled:cursor-not-allowed disabled:opacity-75",
   {

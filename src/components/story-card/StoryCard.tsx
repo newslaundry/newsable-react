@@ -44,7 +44,7 @@ const StoryCardImage = React.forwardRef<HTMLImageElement, StoryCardImageProps>(
     const storyData = useStoryCardContext();
 
     return (
-      <Link href={storyData.slug} className="mb-2 w-full">
+      <Link href={`/story/${storyData.id}`} className="mb-2 w-full">
         <AspectRatio ratio={16 / 9}>
           <img
             ref={forwardedRef}
@@ -76,10 +76,10 @@ StoryCardSection.displayName = "StoryCardSection";
 
 const StoryCardTitle = React.forwardRef<React.ElementRef<typeof Heading>, HeadingBaseProps>(
   ({ className, weight = "h3", ...props }, forwardedRef) => {
-    const { headline, slug } = useStoryCardContext();
+    const { headline, id } = useStoryCardContext();
 
     return (
-      <Link href={`https://www.newslaundry.com/${slug}`} className="line-clamp-2">
+      <Link href={`/story/${id}`} className="line-clamp-2">
         <Heading
           ref={forwardedRef}
           weight={weight}
@@ -138,12 +138,7 @@ const Authors = ({ authors }: { authors: StoryCardProps["authors"] }) => {
       <Text className="line-clamp-1 w-full text-sm font-medium">
         {authors.map(author => {
           return (
-            <Link
-              key={author.id}
-              href={`https://www.newslaundry.com/${author.slug}`}
-              title={author.name}
-              className="inline-block"
-            >
+            <Link key={author.id} href={`/author/${author.id}`} title={author.name} className="inline-block">
               {author.name}
             </Link>
           );
@@ -155,19 +150,11 @@ const Authors = ({ authors }: { authors: StoryCardProps["authors"] }) => {
   if (authors.length === 2) {
     return (
       <Text className="line-clamp-1 w-full text-sm font-medium">
-        <Link
-          href={`https://www.newslaundry.com/${authors[0].slug}`}
-          title={authors[0].name}
-          className="inline-block"
-        >
+        <Link href={`/author/${authors[0].id}`} title={authors[0].name} className="inline-block">
           {authors[0].name}
         </Link>
         <span className="mx-1">&</span>
-        <Link
-          href={`https://www.newslaundry.com/${authors[1].slug}`}
-          title={authors[1].name}
-          className="inline-block"
-        >
+        <Link href={`/author/${authors[1].id}`} title={authors[1].name} className="inline-block">
           {authors[1].name}
         </Link>
       </Text>
@@ -179,11 +166,7 @@ const Authors = ({ authors }: { authors: StoryCardProps["authors"] }) => {
       {authors.slice(0, authors.length - 1).map((author, i) => {
         return (
           <React.Fragment key={author.id}>
-            <Link
-              href={`https://www.newslaundry.com/${author.slug}`}
-              title={author.name}
-              className="inline-block"
-            >
+            <Link href={`/author/${author.id}`} title={author.name} className="inline-block">
               {author.name}
             </Link>
             {i !== authors.length - 2 ? <span className="mr-1">,</span> : null}
@@ -192,7 +175,7 @@ const Authors = ({ authors }: { authors: StoryCardProps["authors"] }) => {
       })}
       <span className="mx-1">&</span>
       <Link
-        href={`https://www.newslaundry.com/${authors[authors.length - 1].slug}`}
+        href={`/author/${authors[authors.length - 1].id}`}
         title={authors[authors.length - 1].name}
         className="inline-block"
       >

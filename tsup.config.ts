@@ -8,6 +8,6 @@ export default defineConfig({
   target: "esnext",
   external: ["react"],
   clean: true,
-  splitting: true,
-  minify: true
+  splitting: true
+  // minify: true
 });

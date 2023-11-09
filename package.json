@@ -73,6 +73,7 @@
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-visually-hidden": "^1.0.3",
+    "class-variance-authority": "^0.7.0",
     "lucide-react": "^0.292.0"
   },
   "devDependencies": {
@@ -103,7 +104,6 @@
     "@typescript-eslint/parser": "^6.9.1",
     "@vitejs/plugin-react": "^4.1.1",
     "autoprefixer": "^10.4.16",
-    "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
