@@ -29,9 +29,6 @@
   ],
   "author": "Rishabh Dixit <rishabh@newslaundry.com>",
   "license": "Apache-2.0",
-  "sideEffects": [
-    "*.css"
-  ],
   "bugs": {
     "url": "https://github.com/newslaundry/newsable-react/issues"
   },
@@ -41,6 +38,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "build": "tsup --config ./tsup.config.ts",
+    "build:css": "NODE_ENV=production tailwindcss build -i ./src/styles.css -o ./dist/index.css",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier:check": "prettier . --check",
     "prettier:write": "prettier . --write",

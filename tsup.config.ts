@@ -7,7 +7,11 @@ export default defineConfig({
   dts: true,
   target: "esnext",
   external: ["react"],
+  platform: "node",
   clean: true,
-  splitting: true
+  splitting: true,
+  sourcemap: true,
+  onSuccess: "pnpm build:css"
+  // treeshake: true
   // minify: true
 });
