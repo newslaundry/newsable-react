@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 export interface AlertDialogBaseProps extends AlertPrimitive.AlertDialogProps {}
 
 /**
- * Alert Dialog component
+ * Alert Dialog Root component
  *
- * Radix UI API reference
+ * Radix UI - Root API reference
  * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#root
  *
  * Follows Alert Dialog a11y pattern
@@ -33,20 +33,6 @@ const AlertDialogTrigger = React.forwardRef<
   );
 });
 AlertDialogTrigger.displayName = AlertPrimitive.Trigger.displayName;
-
-// export interface AlertPortalProps extends AlertPrimitive.AlertDialogPortalProps {}
-
-// const AlertPortal = ({ className, children, ...props }: AlertPortalProps) => {
-//   return (
-//     <AlertPrimitive.Portal
-//       className={cn("fixed inset-0 z-50 flex items-end justify-center sm:items-center", className)}
-//       {...props}
-//     >
-//       {children}
-//     </AlertPrimitive.Portal>
-//   );
-// };
-// AlertPortal.displayName = AlertPrimitive.Portal.displayName;
 
 interface AlertDialogOverlayProps extends AlertPrimitive.AlertDialogOverlayProps {}
 
@@ -168,15 +154,52 @@ const AlertDialogCancel = React.forwardRef<
 AlertDialogCancel.displayName = AlertPrimitive.Cancel.displayName;
 
 /**
- * Alert Dialog Trigger element
+ * Alert Dialog Trigger Component
+ *
+ * Radix UI - Trigger API reference
+ * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#trigger
  */
 AlertDialog.Trigger = AlertDialogTrigger;
 
+/**
+ * Alert Dialog Content Component
+ *
+ * Radix UI - Content API reference
+ * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#content
+ */
 AlertDialog.Content = AlertDialogContent;
+
+/**
+ * Alert Dialog Title Component
+ *
+ * Radix UI - Title API reference
+ * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#title
+ */
 AlertDialog.Title = AlertDialogTitle;
+
+/**
+ * Alert Dialog Description Component
+ *
+ * Radix UI - Description API reference
+ * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#description
+ */
 AlertDialog.Description = AlertDialogDescription;
-AlertDialog.Footer = AlertDialogFooter;
+
+/**
+ * Alert Dialog Action Component
+ *
+ * Radix UI - Action API reference
+ * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#action
+ */
 AlertDialog.Action = AlertDialogAction;
+
+/**
+ * Alert Dialog Cancel Component
+ *
+ * Radix UI - Cancel API reference
+ * @see https://www.radix-ui.com/primitives/docs/components/alert-dialog#cancel
+ */
 AlertDialog.Cancel = AlertDialogCancel;
+AlertDialog.Footer = AlertDialogFooter;
 
 export { AlertDialog };

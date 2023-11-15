@@ -47,6 +47,12 @@ export interface ButtonBaseProps
   loading?: boolean;
 }
 
+/**
+ * Button Component
+ *
+ * Follows Button a11y pattern
+ * @see https://www.w3.org/WAI/ARIA/apg/patterns/button/
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonBaseProps>(
   ({ variant, size, children, disabled, loading, className, ...props }, forwardedRef) => {
     const shouldBeDisabled = disabled || loading;
