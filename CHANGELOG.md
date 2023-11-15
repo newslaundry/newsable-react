@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 1.0.2
+
+### Patch Changes
+
+- [#10](https://github.com/newslaundry/newsable-react/pull/10) [`5b67153`](https://github.com/newslaundry/newsable-react/commit/5b67153920bbf6f0d93f896a0f68b8e6145a728a) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - fixed tsup config for missing variant props
+
 ## 1.0.1
 
 ### Patch Changes
