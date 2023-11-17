@@ -32,7 +32,7 @@ const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupBaseProps>(
           "inline-flex items-center",
           segmented
             ? "[&>*:not(:first-of-type):not(:last-of-type)]:border-x-[0.5px] [&>button:first-of-type]:rounded-l [&>button:first-of-type]:border-r-[0.5px] [&>button:last-of-type]:rounded-r [&>button:last-of-type]:border-l-[0.5px] [&>button]:rounded-none [&>button]:focus:relative [&>button]:focus:z-10"
-            : "gap-4",
+            : "gap-space-base",
           noWrap ? "flex-nowrap" : "flex-wrap",
           className
         )}

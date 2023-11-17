@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 export const toggleVariants = cva("flex items-center justify-center rounded border shadow", {
   variants: {
     variant: {
-      primary:
-        "border-primary-default bg-component-primary-default text-primary-muted focus-ring-primary data-[state=on]:border-primary-dark data-[state=on]:bg-component-primary-pressed data-[state=on]:text-primary-default data-[state=off]:hover:bg-component-primary-hover data-[state=on]:hover:bg-component-primary-dark",
+      neutral:
+        "border-neutral-default bg-component-neutral-default text-neutral-muted focus-ring-neutral data-[state=on]:border-neutral-dark data-[state=on]:bg-component-neutral-pressed data-[state=on]:text-neutral-default data-[state=off]:hover:bg-component-neutral-hover data-[state=on]:hover:bg-component-neutral-dark",
       secondary:
         "border-accent-default bg-component-accent-default text-accent-muted focus-ring-accent data-[state=on]:border-accent-dark data-[state=on]:bg-component-accent-pressed data-[state=on]:text-accent-default data-[state=off]:hover:bg-component-accent-hover data-[state=on]:hover:bg-component-accent-dark"
     },
@@ -21,7 +21,7 @@ export const toggleVariants = cva("flex items-center justify-center rounded bord
     }
   },
   defaultVariants: {
-    variant: "primary",
+    variant: "neutral",
     size: "md"
   }
 });

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Accordion } from "@/components";
 
-import { AccordionHelper } from "./helpers/Accordion";
+import { AccordionHelper } from "./helpers/Accordion.helper";
 
 const meta: Meta<typeof Accordion> = {
   title: "UI/Accordion",

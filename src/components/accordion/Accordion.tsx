@@ -14,7 +14,7 @@ const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Ro
       <AccordionPrimitive.Root
         ref={forwardedRef}
         className={cn(
-          "w-full text-primary-default transition-all duration-default last:border-b-0",
+          "w-full text-neutral-default transition-all duration-default last:border-b-0",
           className
         )}
         {...props}
@@ -36,8 +36,8 @@ const AccordionItem = React.forwardRef<
     <AccordionPrimitive.Item
       ref={forwardedRef}
       className={cn(
-        `border-b border-primary-default outline-none focus-within:relative focus-within:z-10 hover:border-primary-dark data-[state=open]:hover:border-accent-dark ${
-          disabled && "text-primary-muted"
+        `border-b border-neutral-default outline-none focus-within:relative focus-within:z-10 hover:border-neutral-dark data-[state=open]:hover:border-accent-dark ${
+          disabled && "text-neutral-muted"
         }`,
         className
       )}
@@ -62,7 +62,7 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         ref={forwardedRef}
         className={cn(
-          `typography-paragraph-styles flex w-full flex-1 items-center justify-between rounded text-left font-medium focus-ring-primary component-padding-lg hover:bg-component-primary-hover data-[disabled]:cursor-not-allowed data-[state=open]:text-accent-muted data-[state=open]:focus-ring-accent data-[state=open]:hover:bg-component-accent-hover [&[data-state=open]>svg]:rotate-180`,
+          `typography-paragraph-styles flex w-full flex-1 items-center justify-between rounded text-left font-medium focus-ring-neutral component-padding-lg hover:bg-component-neutral-hover data-[disabled]:cursor-not-allowed data-[state=open]:text-accent-muted data-[state=open]:focus-ring-accent data-[state=open]:hover:bg-component-accent-hover [&[data-state=open]>svg]:rotate-180`,
           className
         )}
         {...restProps}
@@ -85,7 +85,7 @@ const AccordionContent = React.forwardRef<
     <AccordionPrimitive.Content
       ref={forwardedRef}
       className={cn(
-        `typography-paragraph-styles overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`,
+        `typography-paragraph-styles overflow-hidden transition-all data-[state=closed]:animate-accordionUp data-[state=open]:animate-accordionDown`,
         className
       )}
       {...restProps}

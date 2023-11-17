@@ -10,7 +10,7 @@ export const badgeVariants = cva(
     variants: {
       variant: {
         neutral:
-          "border border-primary-default bg-component-primary-default text-primary-muted hover:bg-component-primary-hover",
+          "border-primary-default bg-component-primary-default text-primary-muted hover:bg-component-primary-hover border",
         accent:
           "border border-accent-default bg-component-accent-default text-accent-muted hover:bg-component-accent-hover"
       }

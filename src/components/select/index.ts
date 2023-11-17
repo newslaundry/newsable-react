@@ -7,8 +7,6 @@ export type {
   SelectItemProps,
   SelectItemTextProps,
   SelectLabelProps,
-  SelectScrollDownButtonProps,
-  SelectScrollUpButtonProps,
   SelectSeparatorProps,
   SelectTriggerProps,
   SelectValueProps

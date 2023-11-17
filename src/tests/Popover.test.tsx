@@ -14,9 +14,9 @@ const defaultProps = {
         <Button>Click to edit</Button>
       </Popover.Trigger>
       <Popover.Content>
-        <div className="flex flex-col gap-2.5">
+        <div className="gap-space-xs.5 flex flex-col">
           <p className="font-medium">Edit Form</p>
-          <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+          <p className="text-primary-muted text-sm font-medium">You can display a form or anything here.</p>
         </div>
         <Popover.Close />
       </Popover.Content>
@@ -109,9 +109,9 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
           <Button>Click to edit</Button>
         </Popover.Trigger>
         <Popover.Content>
-          <div className="flex flex-col gap-2.5">
+          <div className="gap-space-xs.5 flex flex-col">
             <p className="font-medium">Edit Form</p>
-            <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+            <p className="text-primary-muted text-sm font-medium">You can display a form or anything here.</p>
           </div>
           <Button variant="neutral">Cancel</Button>
           <Button variant="danger">Yes, continue</Button>
@@ -136,9 +136,9 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
           <Button>Click to edit</Button>
         </Popover.Trigger>
         <Popover.Content>
-          <div className="flex flex-col gap-2.5">
+          <div className="gap-space-xs.5 flex flex-col">
             <p className="font-medium">Edit Form</p>
-            <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+            <p className="text-primary-muted text-sm font-medium">You can display a form or anything here.</p>
           </div>
           <Button variant="neutral">Cancel</Button>
           <Button variant="danger">Yes, continue</Button>

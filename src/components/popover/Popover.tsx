@@ -37,7 +37,9 @@ const PopoverContent = React.forwardRef<
       <PopoverPrimitive.Content
         ref={forwardedRef}
         className={cn(
-          "rounded border border-primary-default bg-primary-default p-4 text-primary-default shadow will-change-[transform,opacity] data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=top]:animate-slideDownAndFade",
+          "rounded border border-neutral-default bg-neutral-default p-4 text-neutral-default shadow will-change-[transform,opacity]",
+          "data-[state=open]:data-[side=bottom]:animate-slideDownAndFadeShow data-[state=open]:data-[side=left]:animate-slideLeftAndFadeShow data-[state=open]:data-[side=right]:animate-slideRightAndFadeShow data-[state=open]:data-[side=top]:animate-slideUpAndFadeShow",
+          "data-[state=closed]:data-[side=bottom]:animate-slideDownAndFadeHide data-[state=closed]:data-[side=left]:animate-slideLeftAndFadeHide data-[state=closed]:data-[side=right]:animate-slideRightAndFadeHide data-[state=closed]:data-[side=top]:animate-slideUpAndFadeHide",
           className
         )}
         sideOffset={4 || props.sideOffset}
@@ -63,13 +65,13 @@ const PopoverClose = React.forwardRef<
       <button
         ref={forwardedRef}
         className={cn(
-          "absolute right-2 top-2 inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full text-primary-muted focus-ring-primary hover:bg-component-primary-hover focus:outline-none",
+          "absolute right-2 top-2 inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover focus:outline-none",
           className
         )}
-        aria-label="Close"
+        aria-label="Close button"
         {...props}
       >
-        <Cancel className="h-4 w-4" />
+        <Cancel className="h-4 w-4" aria-hidden="true" />
       </button>
     </PopoverPrimitive.Close>
   );

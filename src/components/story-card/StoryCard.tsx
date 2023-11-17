@@ -28,7 +28,11 @@ const StoryCard = React.forwardRef<HTMLDivElement, StoryCardBaseProps>(
   ({ className, storyCardData, children, ...props }, forwardedRef) => {
     return (
       <StoryCardContext.Provider value={{ ...storyCardData }}>
-        <article ref={forwardedRef} className={cn("flex flex-col items-start gap-2", className)} {...props}>
+        <article
+          ref={forwardedRef}
+          className={cn("flex flex-col items-start gap-space-xs", className)}
+          {...props}
+        >
           {children}
         </article>
       </StoryCardContext.Provider>
@@ -99,7 +103,7 @@ const StoryCardDescription = React.forwardRef<React.ElementRef<typeof Text>, Tex
     const { subheadline } = useStoryCardContext();
 
     return (
-      <Text ref={forwardedRef} className={cn("line-clamp-2 text-primary-muted", className)} {...props}>
+      <Text ref={forwardedRef} className={cn("text-primary-muted line-clamp-2", className)} {...props}>
         {subheadline}
       </Text>
     );
@@ -112,7 +116,7 @@ const StoryCardDescriptionWithReadMore = React.forwardRef<React.ElementRef<typeo
     const { subheadline } = useStoryCardContext();
 
     return (
-      <Text ref={forwardedRef} className={cn("line-clamp-3 text-primary-muted", className)} {...props}>
+      <Text ref={forwardedRef} className={cn("text-primary-muted line-clamp-3", className)} {...props}>
         {subheadline}
       </Text>
     );
@@ -194,7 +198,12 @@ const StoryCardAuthorGroup = React.forwardRef<HTMLDivElement, StoryCardAuthorGro
     const { authors } = useStoryCardContext();
 
     return (
-      <div ref={forwardedRef} className={cn("flex items-center gap-2", className)} role="group" {...props}>
+      <div
+        ref={forwardedRef}
+        className={cn("flex items-center gap-space-xs", className)}
+        role="group"
+        {...props}
+      >
         <HStack className="-space-x-4">
           {authors.map(author => {
             return (
@@ -225,7 +234,7 @@ const StoryCardAuthorGroupWithPublishedTime = React.forwardRef<
   const { authors, ...storyData } = useStoryCardContext();
 
   return (
-    <div ref={forwardedRef} className={cn("flex gap-2", className)} role="group" {...props}>
+    <div ref={forwardedRef} className={cn("flex gap-space-xs", className)} role="group" {...props}>
       <HStack className="-space-x-4">
         {authors.map(author => {
           return (
@@ -239,7 +248,7 @@ const StoryCardAuthorGroupWithPublishedTime = React.forwardRef<
       <VStack className="w-full">
         <Authors authors={authors} />
         <time
-          className="font-mono text-sm text-primary-muted"
+          className="text-primary-muted font-mono text-sm"
           dateTime={new Date(storyData["published-at"]).toISOString()}
         >
           {new Date(storyData["published-at"]).toLocaleDateString("en-IN", {
@@ -266,7 +275,7 @@ const StoryCardAuthorGroupWithPublishedAndReadTime = React.forwardRef<
   const { authors, ...storyData } = useStoryCardContext();
 
   return (
-    <div ref={forwardedRef} className={cn("flex gap-2", className)} role="group" {...props}>
+    <div ref={forwardedRef} className={cn("flex gap-space-xs", className)} role="group" {...props}>
       <HStack className="-space-x-4">
         {authors.map(author => {
           return (
@@ -288,7 +297,7 @@ const StoryCardAuthorGroupWithPublishedAndReadTime = React.forwardRef<
             })}
           </time>
           <Dot className="h-4 w-4" />
-          <Text className="font-mono text-sm text-primary-muted">12 min read</Text>
+          <Text className="text-primary-muted font-mono text-sm">12 min read</Text>
         </HStack>
       </VStack>
     </div>

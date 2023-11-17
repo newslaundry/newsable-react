@@ -1,7 +1,6 @@
 import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChevronDown } from "lucide-react";
 
 import { Select } from "@/components";
 
@@ -19,16 +18,15 @@ export const Primary: Story = {
     <Select>
       <Select.Trigger aria-label="Select a fruit">
         <Select.Value placeholder="Select a fruit" />
-        <Select.Icon className="text-primary-default">
-          <ChevronDown className="h-4 w-4" />
-        </Select.Icon>
       </Select.Trigger>
       <Select.Content>
         <Select.Group>
           <Select.Label>Fruits</Select.Label>
           <Select.Item value="apple">Apple</Select.Item>
           <Select.Item value="banana">Banana</Select.Item>
-          <Select.Item value="blueberry">Blueberry</Select.Item>
+          <Select.Item value="blueberry" disabled>
+            Blueberry
+          </Select.Item>
           <Select.Item value="grapes">Grapes</Select.Item>
           <Select.Item value="pineapple">Pineapple</Select.Item>
         </Select.Group>

@@ -14,12 +14,12 @@ const Input = React.forwardRef<HTMLInputElement, InputBaseProps>(
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     return (
-      <div className="relative w-full max-w-md">
+      <div className="relative w-full max-w-lg">
         <input
           ref={forwardedRef}
           type={isPasswordVisible ? "text" : type}
           className={cn(
-            "flex w-full appearance-none rounded border border-primary-default bg-primary-default text-primary-default focus-ring-primary component-padding-base placeholder:text-primary-muted invalid:focus:focus-ring-danger disabled:cursor-not-allowed disabled:bg-component-primary-default disabled:opacity-75",
+            "flex w-full appearance-none rounded border border-neutral-default bg-neutral-default text-neutral-default focus-ring-neutral component-padding-base placeholder:text-neutral-muted invalid:focus:focus-ring-danger disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75",
             className
           )}
           {...props}
@@ -27,7 +27,7 @@ const Input = React.forwardRef<HTMLInputElement, InputBaseProps>(
         {type === "password" && (
           <Toggle
             aria-label="toggle password visibility"
-            className="absolute right-2 top-1/2 h-auto -translate-y-1/2 px-2 py-1 shadow-none"
+            className="absolute right-2 top-1/2 h-auto -translate-y-1/2 shadow-none component-padding-sm"
             pressed={isPasswordVisible}
             onPressedChange={(pressed: boolean) => setIsPasswordVisible(pressed)}
           >

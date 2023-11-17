@@ -4,6 +4,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button, Sheet } from "@/components";
 
+import { CommentsSheet } from "./helpers/Sheet.helper";
+
 const meta: Meta<typeof Sheet> = {
   title: "UI/Sheet",
   component: Sheet
@@ -99,4 +101,8 @@ export const Bottom: Story = {
       </Sheet.Content>
     </Sheet>
   )
+};
+
+export const Comments: Story = {
+  render: () => <CommentsSheet />
 };

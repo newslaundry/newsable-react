@@ -80,7 +80,7 @@ export const Vertical: Story = {
             Discord
           </Tabs.Trigger>
         </Tabs.Group>
-        <div role="presentation" className="h-[1px] w-full bg-separator-primary"></div>
+        <div role="presentation" className="bg-separator-primary h-[1px] w-full"></div>
         <Tabs.Group>
           <Tabs.GroupLabel>Settings</Tabs.GroupLabel>
           <Tabs.Trigger value="profile">

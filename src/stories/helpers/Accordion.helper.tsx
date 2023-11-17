@@ -1,8 +1,14 @@
 import React from "react";
 
+import resolveConfig from "tailwindcss/resolveConfig";
+
 import { Accordion } from "@/components";
 
+import twconf from "../../../tailwind.config";
+
 const AccordionHelper = () => {
+  const conf = resolveConfig(twconf);
+
   return (
     <Accordion type="single" collapsible={true} defaultValue="item-1" className="mx-auto w-full max-w-2xl">
       <Accordion.Item value="item-1">
@@ -11,10 +17,8 @@ const AccordionHelper = () => {
         </Accordion.Trigger>
         <Accordion.Content>
           For all issues related to subscription, payment or tech, write to{" "}
-          <a className="text-red-500" href="mailto:subscription@newslaundry.com">
-            subscription@newslaundry.com
-          </a>
-          . Our team will get back to you as soon as possible.
+          <a href="mailto:subscription@newslaundry.com">subscription@newslaundry.com</a>. Our team will get
+          back to you as soon as possible.
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="item-2" disabled={true}>
@@ -52,6 +56,7 @@ const AccordionHelper = () => {
           Sponsor a student subscription.
         </Accordion.Content>
       </Accordion.Item>
+      {/* <pre>{JSON.stringify(conf, null, 2)}</pre> */}
     </Accordion>
   );
 };

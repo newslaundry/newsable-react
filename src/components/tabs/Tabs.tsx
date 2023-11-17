@@ -17,7 +17,7 @@ const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsB
         <TabsPrimitive.Root
           ref={forwardedRef}
           className={cn(
-            "flex w-full flex-col space-y-4 rounded text-primary-default data-[orientation=vertical]:flex-row data-[orientation=vertical]:space-x-8 data-[orientation=vertical]:space-y-0",
+            "text-primary-default flex w-full flex-col space-y-4 rounded data-[orientation=vertical]:flex-row data-[orientation=vertical]:space-x-8 data-[orientation=vertical]:space-y-0",
             className
           )}
           defaultValue={defaultValue}
@@ -32,13 +32,13 @@ const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsB
 Tabs.displayName = TabsPrimitive.Root.displayName;
 
 const tabsListVariants = cva(
-  "flex shrink-0 gap-2 data-[orientation=vertical]:min-w-[250px] data-[orientation=vertical]:flex-col",
+  "flex shrink-0 gap-space-xs data-[orientation=vertical]:min-w-[250px] data-[orientation=vertical]:flex-col",
   {
     variants: {
       variant: {
-        default: "gap-0 data-[orientation=vertical]:gap-4",
+        default: "gap-0 data-[orientation=vertical]:gap-space-base",
         underlined: "gap-0",
-        pill: "rounded border border-primary-default bg-component-primary-default p-1"
+        pill: "border-primary-default bg-component-primary-default rounded border p-1"
       }
     },
     defaultVariants: {
@@ -58,7 +58,7 @@ const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, T
         ref={forwardedRef}
         className={cn(tabsListVariants({ variant }), className)}
         // className={cn(
-        //   "flex shrink-0 gap-2 rounded border border-primary-default bg-component-primary-default p-1",
+        //   "flex shrink-0 gap-space-xs rounded border border-primary-default bg-component-primary-default p-1",
         //   className
         // )}
         {...props}
@@ -101,15 +101,15 @@ const TabsGroupLabel = React.forwardRef<HTMLParagraphElement, TabsGroupLabelProp
 TabsGroupLabel.displayName = "TabsGroupLabel";
 
 const tabsTriggerVariants = cva(
-  "flex flex-1 cursor-default select-none items-center justify-center gap-2 text-primary-muted hover:text-primary-default",
+  "text-primary-muted hover:text-primary-default flex flex-1 cursor-default select-none items-center justify-center gap-space-xs",
   {
     variants: {
       variant: {
         default:
-          "rounded-t outline-none focus-ring-primary data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-[orientation=vertical]:rounded data-[orientation=vertical]:data-[state=active]:border data-[orientation=vertical]:data-[state=inactive]:border data-[state=active]:border data-[state=inactive]:border-b data-[orientation=vertical]:data-[state=inactive]:border-transparent data-[state=active]:border-accent-default data-[state=inactive]:border-primary-default data-[state=active]:bg-component-accent-default data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:bg-component-accent-hover data-[state=inactive]:hover:bg-component-primary-default data-[state=active]:hover:text-accent-default data-[state=active]:focus:relative",
+          "focus-ring-primary data-[state=inactive]:border-primary-default data-[state=inactive]:hover:bg-component-primary-default rounded-t outline-none data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-[orientation=vertical]:rounded data-[orientation=vertical]:data-[state=active]:border data-[orientation=vertical]:data-[state=inactive]:border data-[state=active]:border data-[state=inactive]:border-b data-[orientation=vertical]:data-[state=inactive]:border-transparent data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:bg-component-accent-hover data-[state=active]:hover:text-accent-default data-[state=active]:focus:relative",
         underlined:
-          "rounded-t outline-none focus-ring-primary data-[state=active]:border-b-2 data-[state=inactive]:border-b data-[state=active]:border-accent-default data-[state=inactive]:border-primary-default data-[state=active]:font-medium data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent",
-        pill: "rounded border border-transparent bg-transparent outline-none focus-ring-primary data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:font-medium data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:text-accent-default  data-[state=active]:focus:relative"
+          "focus-ring-primary data-[state=inactive]:border-primary-default rounded-t outline-none data-[state=active]:border-b-2 data-[state=inactive]:border-b data-[state=active]:border-accent-default data-[state=active]:font-medium data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent",
+        pill: "focus-ring-primary rounded border border-transparent bg-transparent outline-none data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:font-medium data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:text-accent-default  data-[state=active]:focus:relative"
       },
       size: {
         sm: "component-padding-sm",

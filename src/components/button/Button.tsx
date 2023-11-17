@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 
 // ! TO FIX - variants are not getting exported
 export const buttonVariants = cva(
-  "pointer-events-auto flex cursor-pointer items-center justify-center gap-2 rounded outline-none transition-all disabled:cursor-not-allowed disabled:opacity-75",
+  "pointer-events-auto flex cursor-pointer items-center justify-center gap-space-xs rounded outline-none transition-all disabled:cursor-not-allowed disabled:opacity-75",
   {
     variants: {
       variant: {
         neutral:
-          "border border-primary-default bg-component-primary-default text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed",
+          "border border-neutral-default bg-component-neutral-default text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover active:bg-component-neutral-pressed",
         accent:
           "border border-accent-default bg-component-accent-default text-accent-muted focus-ring-accent hover:bg-component-accent-hover active:bg-component-accent-pressed",
         danger:
@@ -24,9 +24,9 @@ export const buttonVariants = cva(
         success:
           "border border-success-default bg-component-success-default text-success-muted focus-ring-success hover:bg-component-success-hover active:bg-component-success-pressed",
         outline:
-          "border border-primary-default bg-transparent text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed",
+          "border border-neutral-default bg-transparent text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover active:bg-component-neutral-pressed",
         ghost:
-          "border border-transparent text-primary-muted focus-ring-primary hover:bg-component-primary-hover active:bg-component-primary-pressed"
+          "border border-transparent text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover active:bg-component-neutral-pressed"
       },
       size: {
         sm: "text-sm font-normal component-padding-sm",
