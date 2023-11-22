@@ -36,7 +36,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm run publish
+          publish: pnpm run release
           commit: "ci(changesets): version packages"
           title: "ci(changesets): version packages"
         env:
