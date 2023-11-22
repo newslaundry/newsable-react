@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 2.0.0
+
+### Major Changes
+
+- [#12](https://github.com/newslaundry/newsable-react/pull/12) [`824dec6`](https://github.com/newslaundry/newsable-react/commit/824dec616d36c94a5d8630d135ac5e043475055a) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - Updated CSS variables naming scheme and fixes in all components
+
 ## 1.0.2
 
 ### Patch Changes
