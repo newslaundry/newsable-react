@@ -14,9 +14,9 @@ const defaultProps = {
         <Button>Click to edit</Button>
       </Popover.Trigger>
       <Popover.Content>
-        <div className="flex flex-col gap-2.5">
+        <div className="gap-space-xs.5 flex flex-col">
           <p className="font-medium">Edit Form</p>
-          <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+          <p className="text-primary-muted text-sm font-medium">You can display a form or anything here.</p>
         </div>
         <Popover.Close />
       </Popover.Content>
@@ -44,7 +44,7 @@ describe("Accessibility Testing (WAI-ARIA Roles, States, and Properties):", () =
     const user = userEvent.setup();
 
     await user.click(screen.getByRole("button"));
-    expect(screen.getByRole("dialog")).toContainHTML(screen.getByLabelText("Close").innerHTML);
+    expect(screen.getByRole("dialog")).toContainHTML(screen.getByLabelText("Close button").innerHTML);
   });
 
   test("The Popover container element has aria-modal set to true when opened", async () => {
@@ -65,7 +65,7 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
     const user = userEvent.setup();
 
     await user.click(screen.getByRole("button"));
-    expect(screen.getByLabelText("Close")).toHaveFocus();
+    expect(screen.getByLabelText("Close button")).toHaveFocus();
   });
 
   test("Pressing Space opens/closes the popover", async () => {
@@ -109,9 +109,9 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
           <Button>Click to edit</Button>
         </Popover.Trigger>
         <Popover.Content>
-          <div className="flex flex-col gap-2.5">
+          <div className="gap-space-xs.5 flex flex-col">
             <p className="font-medium">Edit Form</p>
-            <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+            <p className="text-primary-muted text-sm font-medium">You can display a form or anything here.</p>
           </div>
           <Button variant="neutral">Cancel</Button>
           <Button variant="danger">Yes, continue</Button>
@@ -136,9 +136,9 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
           <Button>Click to edit</Button>
         </Popover.Trigger>
         <Popover.Content>
-          <div className="flex flex-col gap-2.5">
+          <div className="gap-space-xs.5 flex flex-col">
             <p className="font-medium">Edit Form</p>
-            <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+            <p className="text-primary-muted text-sm font-medium">You can display a form or anything here.</p>
           </div>
           <Button variant="neutral">Cancel</Button>
           <Button variant="danger">Yes, continue</Button>

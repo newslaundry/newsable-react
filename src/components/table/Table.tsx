@@ -22,7 +22,7 @@ export interface TableHeaderProps extends React.ComponentPropsWithoutRef<"thead"
 const TableHeader = React.forwardRef<HTMLTableSectionElement, TableHeaderProps>(
   ({ className, children, ...props }, forwardedRef) => {
     return (
-      <thead ref={forwardedRef} className={cn("border-b border-primary-default", className)} {...props}>
+      <thead ref={forwardedRef} className={cn("border-b border-neutral-default", className)} {...props}>
         {children}
       </thead>
     );
@@ -38,7 +38,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
       <th
         ref={forwardedRef}
         className={cn(
-          "h-10 px-4 text-left align-middle text-sm font-medium text-primary-muted [&:has([role=checkbox])]:pr-0",
+          "h-10 px-4 text-left align-middle text-sm font-medium text-neutral-muted [&:has([role=checkbox])]:pr-0",
           className
         )}
         {...props}
@@ -70,7 +70,7 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
     return (
       <tfoot
         ref={forwardedRef}
-        className={cn("text-sm font-medium text-primary-muted", className)}
+        className={cn("text-sm font-medium text-neutral-muted", className)}
         {...props}
       >
         {children}
@@ -88,7 +88,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
       <tr
         ref={forwardedRef}
         className={cn(
-          "border-b border-primary-default transition-colors hover:bg-component-primary-hover data-[state=selected]:bg-component-primary-pressed",
+          "border-b border-neutral-default transition-colors hover:bg-component-neutral-hover data-[state=selected]:bg-component-neutral-pressed",
           className
         )}
         {...props}
@@ -122,7 +122,7 @@ export interface TableCaptionProps extends React.ComponentPropsWithoutRef<"capti
 const TableCaption = React.forwardRef<HTMLTableCaptionElement, TableCaptionProps>(
   ({ className, children, ...props }, forwardedRef) => {
     return (
-      <caption ref={forwardedRef} className={cn("mt-8 text-sm text-primary-muted", className)} {...props}>
+      <caption ref={forwardedRef} className={cn("mt-8 text-sm text-neutral-muted", className)} {...props}>
         {children}
       </caption>
     );

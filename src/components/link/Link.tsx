@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const linkVariants = cva("inline-flex items-center gap-1 rounded", {
   variants: {
     variant: {
-      neutral: "text-primary-default focus-ring-primary",
+      neutral: "text-neutral-default focus-ring-neutral",
       accent: "text-accent-default focus-ring-accent",
       success: "text-success-default focus-ring-success",
       attention: "text-attention-default focus-ring-attention",

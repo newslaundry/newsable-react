@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, test } from "vitest";
+import { describe, expect, it, test } from "vitest";
 
 import { Accordion } from "@/components";
 import { checkAccessibility } from "@/utils/accessibility";

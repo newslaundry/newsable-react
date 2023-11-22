@@ -1,6 +1,7 @@
 import { newsableTailwindPreset } from "@newsable/tailwind-preset";
 import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
+import plugin from "tailwindcss/plugin";
 
 const config = {
   presets: [newsableTailwindPreset],
@@ -12,11 +13,11 @@ const config = {
   theme: {
     extend: {
       keyframes: {
-        "accordion-down": {
+        accordionDown: {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" }
         },
-        "accordion-up": {
+        accordionUp: {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" }
         },
@@ -36,21 +37,37 @@ const config = {
           from: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
           to: { opacity: "0", transform: "translate(-50%, -48%) scale(0.96)" }
         },
-        slideDownAndFade: {
+        slideDownAndFadeShow: {
           from: { opacity: "0", transform: "translateY(-2px)" },
           to: { opacity: "1", transform: "translateY(0)" }
         },
-        slideLeftAndFade: {
+        slideDownAndFadeHide: {
+          from: { opacity: "1", transform: "translateY(0)" },
+          to: { opacity: "0", transform: "translateY(-2px)" }
+        },
+        slideLeftAndFadeShow: {
           from: { opacity: "0", transform: "translateX(2px)" },
           to: { opacity: "1", transform: "translateX(0)" }
         },
-        slideUpAndFade: {
+        slideLeftAndFadeHide: {
+          from: { opacity: "1", transform: "translateX(0)" },
+          to: { opacity: "0", transform: "translateX(2px)" }
+        },
+        slideUpAndFadeShow: {
           from: { opacity: "0", transform: "translateY(2px)" },
           to: { opacity: "1", transform: "translateY(0)" }
         },
-        slideRightAndFade: {
+        slideUpAndFadeHide: {
+          from: { opacity: "1", transform: "translateY(0)" },
+          to: { opacity: "0", transform: "translateY(2px)" }
+        },
+        slideRightAndFadeShow: {
           from: { opacity: "0", transform: "translateX(-2px)" },
           to: { opacity: "1", transform: "translateX(0)" }
+        },
+        slideRightAndFadeHide: {
+          from: { opacity: "1", transform: "translateX(0)" },
+          to: { opacity: "0", transform: "translateX(-2px)" }
         },
         enterFromRight: {
           from: { opacity: "0", transform: "translateX(200px)" },
@@ -69,12 +86,12 @@ const config = {
           to: { opacity: "0", transform: "translateX(-200px)" }
         },
         scaleIn: {
-          from: { opacity: "0", transform: "rotateX(-10deg) scale(0.9)" },
-          to: { opacity: "1", transform: "rotateX(0deg) scale(1)" }
+          from: { opacity: "0", transform: "scale(0.95)" },
+          to: { opacity: "1", transform: "scale(1)" }
         },
         scaleOut: {
-          from: { opacity: "1", transform: "rotateX(0deg) scale(1)" },
-          to: { opacity: "0", transform: "rotateX(-10deg) scale(0.95)" }
+          from: { opacity: "1", transform: "scale(1)" },
+          to: { opacity: "0", transform: "scale(0.95)" }
         },
         fadeIn: {
           from: { opacity: "0" },
@@ -88,6 +105,10 @@ const config = {
           from: { opacity: "1" },
           to: { opacity: "0" }
         },
+        show: {
+          from: { opacity: "0" },
+          to: { opacity: "1" }
+        },
         slideIn: {
           from: {
             transform: "translateX(calc(100% + var(--viewport-padding)))"
@@ -100,16 +121,20 @@ const config = {
         }
       },
       animation: {
-        "accordion-down": "accordion-down var(--animation-timing-default) ease-out",
-        "accordion-up": "accordion-up var(--animation-timing-default) ease-out",
+        accordionDown: "accordionDown var(--animation-timing-default) ease-out",
+        accordionUp: "accordionUp var(--animation-timing-default) ease-out",
         overlayShow: "overlayShow var(--animation-timing-default) ease-out",
         overlayHide: "overlayHide var(--animation-timing-default) ease-out",
         contentShow: "contentShow var(--animation-timing-default) ease-out",
         contentHide: "contentHide var(--animation-timing-default) ease-out",
-        slideDownAndFade: "slideDownAndFade var(--animation-timing-default) ease-out",
-        slideLeftAndFade: "slideLeftAndFade var(--animation-timing-default) ease-out",
-        slideUpAndFade: "slideUpAndFade var(--animation-timing-default) ease-out",
-        slideRightAndFade: "slideRightAndFade var(--animation-timing-default) ease-out",
+        slideDownAndFadeShow: "slideDownAndFadeShow var(--animation-timing-default) ease-out",
+        slideDownAndFadeHide: "slideDownAndFadeHide var(--animation-timing-default) ease-out",
+        slideLeftAndFadeShow: "slideLeftAndFadeShow var(--animation-timing-default) ease-out",
+        slideLeftAndFadeHide: "slideLeftAndFadeHide var(--animation-timing-default) ease-out",
+        slideUpAndFadeShow: "slideUpAndFadeShow var(--animation-timing-default) ease-out",
+        slideUpAndFadeHide: "slideUpAndFadeHide var(--animation-timing-default) ease-out",
+        slideRightAndFadeShow: "slideRightAndFadeShow var(--animation-timing-default) ease-out",
+        slideRightAndFadeHide: "slideRightAndFadeHide var(--animation-timing-default) ease-out",
         scaleIn: "scaleIn var(--animation-timing-default) ease-out",
         scaleOut: "scaleOut var(--animation-timing-default) ease-out",
         fadeIn: "fadeIn var(--animation-timing-default) ease-out",
@@ -124,7 +149,16 @@ const config = {
       }
     }
   },
-  plugins: [animatePlugin]
+  plugins: [
+    animatePlugin,
+    plugin(({ matchUtilities }) => {
+      matchUtilities({
+        perspective: value => ({
+          perspective: value
+        })
+      });
+    })
+  ]
 } satisfies Config;
 
 export default config;

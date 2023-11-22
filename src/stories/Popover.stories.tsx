@@ -2,28 +2,78 @@ import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button, Popover } from "@/components";
+import { Button, Popover, Text } from "@/components";
 
 const meta: Meta<typeof Popover> = {
   title: "UI/Popover",
-  component: Popover,
-  tags: ["autodocs"]
+  component: Popover
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Popover>;
 
-export const Primary: Story = {
+export const Top: Story = {
   render: () => (
     <Popover>
       <Popover.Trigger asChild>
         <Button>Click to edit</Button>
       </Popover.Trigger>
-      <Popover.Content>
-        <div className="flex flex-col gap-2.5">
-          <p className="font-medium">Edit Form</p>
-          <p className="text-sm font-medium text-primary-muted">You can display a form or anything here.</p>
+      <Popover.Content side="top">
+        <div className="flex flex-col gap-space-xs">
+          <Text className="font-medium">Some title</Text>
+          <Text className="text-neutral-muted">You can display a form or anything here.</Text>
+        </div>
+        <Popover.Close />
+      </Popover.Content>
+    </Popover>
+  )
+};
+
+export const Bottom: Story = {
+  render: () => (
+    <Popover>
+      <Popover.Trigger asChild>
+        <Button>Click to edit</Button>
+      </Popover.Trigger>
+      <Popover.Content side="bottom">
+        <div className="flex flex-col gap-space-xs">
+          <Text className="font-medium">Some title</Text>
+          <Text className="text-neutral-muted">You can display a form or anything here.</Text>
+        </div>
+        <Popover.Close />
+      </Popover.Content>
+    </Popover>
+  )
+};
+
+export const Left: Story = {
+  render: () => (
+    <Popover>
+      <Popover.Trigger asChild>
+        <Button>Click to edit</Button>
+      </Popover.Trigger>
+      <Popover.Content side="left">
+        <div className="flex flex-col gap-space-xs">
+          <Text className="font-medium">Some title</Text>
+          <Text className="text-neutral-muted">You can display a form or anything here.</Text>
+        </div>
+        <Popover.Close />
+      </Popover.Content>
+    </Popover>
+  )
+};
+
+export const Right: Story = {
+  render: () => (
+    <Popover>
+      <Popover.Trigger asChild>
+        <Button>Click to edit</Button>
+      </Popover.Trigger>
+      <Popover.Content side="right">
+        <div className="flex flex-col gap-space-xs">
+          <Text className="font-medium">Some title</Text>
+          <Text className="text-neutral-muted">You can display a form or anything here.</Text>
         </div>
         <Popover.Close />
       </Popover.Content>

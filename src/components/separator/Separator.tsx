@@ -11,7 +11,7 @@ const separatorVariants = cva(
   {
     variants: {
       variant: {
-        neutral: "bg-separator-primary",
+        neutral: "bg-separator-neutral",
         accent: "bg-separator-accent",
         success: "bg-separator-success",
         attention: "bg-separator-attention",
@@ -33,7 +33,7 @@ const Separator = React.forwardRef<React.ElementRef<typeof SeparatorPrimitive.Ro
     return (
       <SeparatorPrimitive.Root
         ref={forwardedRef}
-        className={cn(separatorVariants({ variant, className }))}
+        className={cn(separatorVariants({ variant }), className)}
         orientation={orientation}
         decorative={decorative}
         aria-orientation={decorative ? undefined : orientation}

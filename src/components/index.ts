@@ -30,3 +30,4 @@ export * from "./textarea";
 export * from "./toggle";
 export * from "./toggle-group";
 export * from "./v-stack";
+export * from "./visually-hidden";

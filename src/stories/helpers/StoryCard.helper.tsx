@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StoryCard } from "@/components";
+import { StoryCard, VStack } from "@/components";
 
 const story = {
   "updated-at": 1699420632418,
@@ -237,6 +237,17 @@ const story = {
       id: 1850007,
       "avatar-s3-key": null,
       "twitter-handle": null
+    },
+    {
+      slug: "tanishka-sodhi",
+      social: {},
+      name: "Tanishka Sodhi",
+      "contributor-role": null,
+      "avatar-url": null,
+      bio: null,
+      id: 1850002,
+      "avatar-s3-key": null,
+      "twitter-handle": null
     }
   ],
   metadata: {
@@ -248,12 +259,12 @@ const story = {
   "assignee-name": "Aban Usmani"
 };
 
-const StoryCardHelper = () => {
+const VerticalCard = () => {
   return (
     <div className="max-w-sm">
-      <StoryCard storyCardData={story}>
+      <StoryCard storyCardData={story} orientation="vertical">
         <StoryCard.Image />
-        <StoryCard.Section variant="accent" />
+        <StoryCard.SectionAsBadge variant="accent" />
         <StoryCard.Title weight="h3" />
         <StoryCard.Description />
         <StoryCard.AuthorGroupWithPublishedTime />
@@ -262,4 +273,34 @@ const StoryCardHelper = () => {
   );
 };
 
-export { StoryCardHelper };
+const HorizontalCard = () => {
+  return (
+    <div className="max-w-xl">
+      <StoryCard storyCardData={story} orientation="horizontal">
+        <StoryCard.Image />
+        <VStack data-orientation="horizontal" className="gap-space-xxs">
+          <StoryCard.SectionAsBadge variant="accent" />
+          <StoryCard.Title weight="h3" />
+          <StoryCard.Description />
+        </VStack>
+      </StoryCard>
+    </div>
+  );
+};
+
+const NewslaundryCard = () => {
+  return (
+    <div className="max-w-sm">
+      <StoryCard storyCardData={story} orientation="vertical">
+        <StoryCard.Image />
+        <StoryCard.Section variant="accent" />
+        <StoryCard.Title weight="h3" />
+        <StoryCard.Description />
+        <StoryCard.Authors />
+        <StoryCard.RelativePublishedTime />
+      </StoryCard>
+    </div>
+  );
+};
+
+export { HorizontalCard, NewslaundryCard, VerticalCard };

@@ -59,7 +59,7 @@ const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.C
           ref={forwardedRef}
           aria-modal={true}
           className={cn(
-            "fixed left-[50%] top-[50%] z-50 grid max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] gap-2 rounded border border-primary-default bg-primary-muted p-4 shadow duration-default data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow sm:max-w-lg sm:rounded",
+            "fixed left-[50%] top-[50%] z-50 grid max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] gap-space-xs rounded border border-neutral-default bg-neutral-muted p-4 shadow duration-default data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow sm:max-w-lg sm:rounded",
             className
           )}
           {...props}
@@ -79,7 +79,7 @@ const DialogTitle = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Tit
   ({ className, children, ...props }, forwardedRef) => (
     <DialogPrimitive.Title
       ref={forwardedRef}
-      className={cn("max-w-[240px] text-lg font-medium text-primary-default sm:max-w-none", className)}
+      className={cn("max-w-[240px] text-lg font-medium text-neutral-default sm:max-w-none", className)}
       {...props}
     >
       {children}
@@ -96,7 +96,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, children, ...props }, forwardedRef) => (
   <DialogPrimitive.Description
     ref={forwardedRef}
-    className={cn("text-base leading-normal text-primary-muted", className)}
+    className={cn("text-base leading-normal text-neutral-muted", className)}
     {...props}
   >
     {children}
@@ -112,7 +112,7 @@ const DialogClose = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Clo
       <DialogPrimitive.Close ref={forwardedRef} asChild {...props}>
         <button
           className={cn(
-            "absolute right-2 top-2 inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full text-primary-muted focus-ring-primary hover:bg-component-primary-hover focus:outline-none",
+            "absolute right-2 top-2 inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover focus:outline-none",
             className
           )}
           aria-label="Close"

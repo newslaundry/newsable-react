@@ -35,7 +35,7 @@ const SheetOverlay = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Ove
       <SheetPrimitive.Overlay
         ref={forwardedRef}
         className={cn(
-          "fixed inset-0 z-50 bg-overlay transition-all duration-default data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+          "fixed inset-0 z-50 bg-overlay data-[state=closed]:animate-overlayHide data-[state=open]:animate-overlayShow",
           className
         )}
         {...props}
@@ -48,7 +48,7 @@ const SheetOverlay = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Ove
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 export const sheetContentVariants = cva(
-  "fixed z-50 gap-4 border-primary-default bg-primary-default p-4 transition ease-in-out data-[state=closed]:duration-default data-[state=open]:duration-default data-[state=open]:animate-in data-[state=closed]:animate-out",
+  "fixed z-50 gap-space-base border-neutral-default bg-neutral-default p-space-base transition ease-out data-[state=closed]:duration-default data-[state=open]:duration-default data-[state=open]:animate-in data-[state=closed]:animate-out",
   {
     variants: {
       position: {
@@ -81,7 +81,7 @@ const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Con
           {...props}
         >
           {children}
-          <SheetPrimitive.Close className="absolute right-4 top-4 rounded-full transition-opacity focus-ring-primary focus:outline-none disabled:pointer-events-none data-[state=open]:bg-component-primary-default">
+          <SheetPrimitive.Close className="absolute right-4 top-4 rounded-full transition-opacity focus-ring-neutral focus:outline-none disabled:pointer-events-none">
             <Cancel className="h-4 w-4" aria-hidden="true" />
             <VisuallyHiddenPrimitive.Root>Close button</VisuallyHiddenPrimitive.Root>
           </SheetPrimitive.Close>
@@ -124,7 +124,7 @@ const SheetTitle = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Title
   ({ className, ...props }, ref) => (
     <SheetPrimitive.Title
       ref={ref}
-      className={cn("text-2xl font-semibold text-primary-default lg:text-3xl", className)}
+      className={cn("text-2xl font-semibold text-neutral-default lg:text-3xl", className)}
       {...props}
     />
   )
@@ -137,7 +137,7 @@ const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
   SheetDescriptionProps
 >(({ className, ...props }, ref) => (
-  <SheetPrimitive.Description ref={ref} className={cn("text-sm text-primary-muted", className)} {...props} />
+  <SheetPrimitive.Description ref={ref} className={cn("text-sm text-neutral-muted", className)} {...props} />
 ));
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
 

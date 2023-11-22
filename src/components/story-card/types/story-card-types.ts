@@ -18,7 +18,7 @@ interface Section {
   };
 }
 
-export interface StoryCardProps {
+export interface StoryCardData {
   id: string;
   url: string;
   headline: string;

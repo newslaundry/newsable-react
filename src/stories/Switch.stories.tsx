@@ -14,5 +14,5 @@ export default meta;
 type Story = StoryObj<typeof Switch>;
 
 export const Primary: Story = {
-  render: () => <Switch />
+  render: () => <Switch aria-label="Switch demo" />
 };

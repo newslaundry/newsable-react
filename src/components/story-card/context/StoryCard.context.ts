@@ -1,6 +1,11 @@
 import { createContext, useContext } from "react";
 
-import { StoryCardProps } from "../types/story-card-types";
+import { StoryCardData } from "../types/story-card-types";
+
+export interface StoryCardProps {
+  storyCardData: StoryCardData;
+  orientation?: "horizontal" | "vertical";
+}
 
 const StoryCardContext = createContext<StoryCardProps | null>(null);
 

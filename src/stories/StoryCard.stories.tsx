@@ -4,17 +4,25 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { StoryCard } from "@/components";
 
-import { StoryCardHelper } from "./helpers/StoryCard.helper";
+import { HorizontalCard, NewslaundryCard, VerticalCard } from "./helpers/StoryCard.helper";
 
 const meta: Meta<typeof StoryCard> = {
   title: "UI/StoryCard",
-  component: StoryCardHelper
+  component: StoryCard
 };
 
 export default meta;
 
 type Story = StoryObj<typeof StoryCard>;
 
-export const Primary: Story = {
-  render: () => <StoryCardHelper />
+export const Vertical: Story = {
+  render: () => <VerticalCard />
+};
+
+export const Horizontal: Story = {
+  render: () => <HorizontalCard />
+};
+
+export const Newslaundry: Story = {
+  render: () => <NewslaundryCard />
 };
