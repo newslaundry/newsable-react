@@ -11,16 +11,19 @@ import { TabsContext, TabsProps, useTabsContext } from "./context/Tabs.context";
 export interface TabsBaseProps extends TabsPrimitive.TabsProps, TabsProps {}
 
 const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsBaseProps>(
-  ({ children, className, defaultValue, variant, ...props }, forwardedRef) => {
+  ({ children, className, variant, defaultValue, ...props }, forwardedRef) => {
     return (
       <TabsContext.Provider value={{ variant }}>
         <TabsPrimitive.Root
           ref={forwardedRef}
           className={cn(
-            "text-primary-default flex w-full flex-col space-y-4 rounded data-[orientation=vertical]:flex-row data-[orientation=vertical]:space-x-8 data-[orientation=vertical]:space-y-0",
+            "flex w-full rounded text-neutral-default",
+            "data-[orientation=vertical]:flex-row data-[orientation=vertical]:space-x-space-base data-[orientation=vertical]:space-y-0",
+            "data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:space-x-0 data-[orientation=horizontal]:space-y-space-base",
             className
           )}
           defaultValue={defaultValue}
+          data-variant={variant}
           {...props}
         >
           {children}
@@ -32,13 +35,13 @@ const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsB
 Tabs.displayName = TabsPrimitive.Root.displayName;
 
 const tabsListVariants = cva(
-  "flex shrink-0 gap-space-xs data-[orientation=vertical]:min-w-[250px] data-[orientation=vertical]:flex-col",
+  "group flex shrink-0 data-[orientation=vertical]:min-w-[250px] data-[orientation=vertical]:flex-col",
   {
     variants: {
       variant: {
-        default: "gap-0 data-[orientation=vertical]:gap-space-base",
-        underlined: "gap-0",
-        pill: "border-primary-default bg-component-primary-default rounded border p-1"
+        default: "data-[orientation=horizontal]:gap-0 data-[orientation=vertical]:gap-space-base",
+        underlined: "data-[orientation=horizontal]:gap-0 data-[orientation=vertical]:gap-space-base",
+        pill: "rounded border border-neutral-default bg-component-neutral-default data-[orientation=horizontal]:gap-0 data-[orientation=vertical]:gap-space-base data-[orientation=horizontal]:p-1 data-[orientation=vertical]:component-padding-base"
       }
     },
     defaultVariants: {
@@ -57,10 +60,6 @@ const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, T
       <TabsPrimitive.List
         ref={forwardedRef}
         className={cn(tabsListVariants({ variant }), className)}
-        // className={cn(
-        //   "flex shrink-0 gap-space-xs rounded border border-primary-default bg-component-primary-default p-1",
-        //   className
-        // )}
         {...props}
       >
         {children}
@@ -90,7 +89,10 @@ const TabsGroupLabel = React.forwardRef<HTMLParagraphElement, TabsGroupLabelProp
     return (
       <p
         ref={forwardedRef}
-        className={cn("typography-paragraph-styles mb-2 px-4 font-medium", className)}
+        className={cn(
+          "typography-paragraph-styles mb-2 text-sm font-medium text-neutral-muted component-padding-x-base",
+          className
+        )}
         {...props}
       >
         {children}
@@ -101,15 +103,28 @@ const TabsGroupLabel = React.forwardRef<HTMLParagraphElement, TabsGroupLabelProp
 TabsGroupLabel.displayName = "TabsGroupLabel";
 
 const tabsTriggerVariants = cva(
-  "text-primary-muted hover:text-primary-default flex flex-1 cursor-default select-none items-center justify-center gap-space-xs",
+  "flex flex-1 cursor-default select-none items-center justify-center gap-space-xs font-medium text-neutral-muted hover:text-neutral-default",
   {
     variants: {
       variant: {
-        default:
-          "focus-ring-primary data-[state=inactive]:border-primary-default data-[state=inactive]:hover:bg-component-primary-default rounded-t outline-none data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-[orientation=vertical]:rounded data-[orientation=vertical]:data-[state=active]:border data-[orientation=vertical]:data-[state=inactive]:border data-[state=active]:border data-[state=inactive]:border-b data-[orientation=vertical]:data-[state=inactive]:border-transparent data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:bg-component-accent-hover data-[state=active]:hover:text-accent-default data-[state=active]:focus:relative",
-        underlined:
-          "focus-ring-primary data-[state=inactive]:border-primary-default rounded-t outline-none data-[state=active]:border-b-2 data-[state=inactive]:border-b data-[state=active]:border-accent-default data-[state=active]:font-medium data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent",
-        pill: "focus-ring-primary rounded border border-transparent bg-transparent outline-none data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:font-medium data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:text-accent-default  data-[state=active]:focus:relative"
+        default: cn(
+          "rounded-t outline-none focus-ring-neutral",
+          "data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-[orientation=vertical]:rounded data-[orientation=vertical]:border data-[orientation=vertical]:data-[state=inactive]:border-transparent",
+          "data-[orientation=horizontal]:border data-[orientation=horizontal]:data-[state=inactive]:border-b data-[orientation=horizontal]:data-[state=inactive]:border-x-transparent data-[orientation=horizontal]:data-[state=inactive]:border-t-transparent",
+          "data-[state=inactive]:border-neutral-default data-[state=inactive]:hover:bg-component-neutral-default",
+          "data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:bg-component-accent-hover data-[state=active]:hover:text-accent-default data-[state=active]:focus:relative"
+        ),
+        underlined: cn(
+          "outline-none focus-ring-neutral",
+          "data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-[orientation=vertical]:rounded-none data-[orientation=vertical]:border data-[orientation=vertical]:data-[state=inactive]:border-transparent data-[orientation=vertical]:data-[state=active]:border-x-transparent data-[orientation=vertical]:data-[state=active]:border-b-accent-default data-[orientation=vertical]:data-[state=active]:border-t-transparent data-[orientation=vertical]:data-[state=active]:focus:rounded",
+          "data-[orientation=horizontal]:rounded-t data-[orientation=horizontal]:border-b data-[orientation=horizontal]:data-[state=active]:border-accent-default data-[orientation=horizontal]:data-[state=inactive]:border-neutral-default",
+          "data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent"
+        ),
+        pill: cn(
+          "rounded border border-transparent bg-transparent outline-none focus-ring-neutral",
+          "data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start",
+          "data-[state=active]:border-accent-default data-[state=active]:bg-component-accent-default data-[state=active]:text-accent-muted data-[state=active]:focus-ring-accent data-[state=active]:hover:text-accent-default data-[state=active]:focus:relative"
+        )
       },
       size: {
         sm: "component-padding-sm",
@@ -134,10 +149,6 @@ const TabsTrigger = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Trigg
       <TabsPrimitive.Trigger
         ref={forwardedRef}
         className={cn(tabsTriggerVariants({ variant }), className)}
-        // className={cn(
-        //   "focus-ring-primary flex h-10 flex-1 cursor-default select-none items-center justify-center rounded border border-transparent bg-transparent px-4 text-sm leading-none text-primary-muted outline-none hover:text-primary-default data-[state=active]:border-primary-default data-[state=active]:bg-primary-default data-[state=active]:text-primary-default data-[state=active]:focus:relative",
-        //   className
-        // )}
         value={value}
         {...props}
       >

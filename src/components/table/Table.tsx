@@ -130,7 +130,7 @@ const TableCaption = React.forwardRef<HTMLTableCaptionElement, TableCaptionProps
 );
 TableCaption.displayName = "TableCaption";
 
-const TableCompoundComponent = Object.assign(Table, {
+const TableCompoundComponent = Object.assign({}, Table, {
   Header: TableHeader,
   Body: TableBody,
   Footer: TableFooter,

@@ -48,7 +48,7 @@ const SheetOverlay = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Ove
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 export const sheetContentVariants = cva(
-  "fixed z-50 gap-space-base border-neutral-default bg-neutral-default p-space-base transition ease-in-out data-[state=closed]:duration-default data-[state=open]:duration-default data-[state=open]:animate-in data-[state=closed]:animate-out",
+  "fixed z-50 gap-space-base border-neutral-default bg-neutral-default p-space-base transition ease-out data-[state=closed]:duration-default data-[state=open]:duration-default data-[state=open]:animate-in data-[state=closed]:animate-out",
   {
     variants: {
       position: {

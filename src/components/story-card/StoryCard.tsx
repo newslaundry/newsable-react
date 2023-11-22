@@ -1,36 +1,29 @@
 import React from "react";
 
+import { VariantProps, cva } from "class-variance-authority";
+import { formatDistance } from "date-fns";
 import { Dot } from "lucide-react";
 
-import {
-  AspectRatio,
-  Avatar,
-  Badge,
-  BadgeBaseProps,
-  HStack,
-  Heading,
-  HeadingBaseProps,
-  Link,
-  Text,
-  TextBaseProps,
-  VStack
-} from "@/components";
+import type { BadgeBaseProps, HeadingBaseProps, TextBaseProps } from "@/components";
+import { AspectRatio, Avatar, Badge, HStack, Heading, Link, Text, VStack } from "@/components";
 import { cn } from "@/lib/utils";
 
-import { StoryCardContext, useStoryCardContext } from "./context/StoryCard.context";
-import { StoryCardProps } from "./types/story-card-types";
+import { StoryCardContext, StoryCardProps, useStoryCardContext } from "./context/StoryCard.context";
 
-export interface StoryCardBaseProps extends React.ComponentPropsWithoutRef<"article"> {
-  storyCardData: StoryCardProps;
-}
+export interface StoryCardBaseProps extends React.ComponentPropsWithoutRef<"article">, StoryCardProps {}
 
 const StoryCard = React.forwardRef<HTMLDivElement, StoryCardBaseProps>(
-  ({ className, storyCardData, children, ...props }, forwardedRef) => {
+  ({ className, storyCardData, orientation = "vertical", children, ...props }, forwardedRef) => {
     return (
-      <StoryCardContext.Provider value={{ ...storyCardData }}>
+      <StoryCardContext.Provider value={{ storyCardData, orientation }}>
         <article
           ref={forwardedRef}
-          className={cn("flex flex-col items-start gap-space-xs", className)}
+          className={cn(
+            "data-[orientation=vertical]:flex data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start data-[orientation=vertical]:gap-space-xs",
+            "data-[orientation=horizontal]:horizontal-story-card-grid data-[orientation=horizontal]:gap-space-sm",
+            className
+          )}
+          data-orientation={orientation}
           {...props}
         >
           {children}
@@ -45,54 +38,101 @@ export interface StoryCardImageProps extends React.ComponentPropsWithoutRef<"img
 
 const StoryCardImage = React.forwardRef<HTMLImageElement, StoryCardImageProps>(
   ({ className, ...props }, forwardedRef) => {
-    const storyData = useStoryCardContext();
+    const { storyCardData, orientation } = useStoryCardContext();
 
     return (
-      <Link href={`/story/${storyData.id}`} className="mb-2 w-full">
-        <AspectRatio ratio={16 / 9}>
-          <img
-            ref={forwardedRef}
-            src={`https://gumlet.assettype.com/${storyData["hero-image-s3-key"]}?auto=format%2Ccompress&format=webp&w=700&dpr=2.0`}
-            alt={storyData.headline}
-            className={cn("w-full rounded shadow", className)}
-            {...props}
-          />
-        </AspectRatio>
-      </Link>
+      <AspectRatio ratio={16 / 9} data-orientation={orientation}>
+        <img
+          ref={forwardedRef}
+          src={`https://gumlet.assettype.com/${storyCardData["hero-image-s3-key"]}?auto=format%2Ccompress&format=webp&w=700&dpr=2.0`}
+          alt={storyCardData.headline}
+          data-orientation={orientation}
+          className={cn("aspect-video w-full rounded", className)}
+          {...props}
+        />
+      </AspectRatio>
     );
   }
 );
 StoryCardImage.displayName = "StoryCardImage";
 
-const StoryCardSection = React.forwardRef<React.ElementRef<typeof Badge>, BadgeBaseProps>(
-  ({ className, ...props }, forwardedRef) => {
-    const { sections } = useStoryCardContext();
+const storyCardSectionVariants = cva(
+  "typography-paragraph-styles text-sm font-medium underline underline-offset-4",
+  {
+    variants: {
+      variant: {
+        neutral: "text-neutral-muted",
+        accent: "text-accent-muted"
+      }
+    },
+    defaultVariants: {
+      variant: "neutral"
+    }
+  }
+);
+
+interface StoryCardSectionProps
+  extends React.ComponentPropsWithoutRef<"p">,
+    VariantProps<typeof storyCardSectionVariants> {}
+
+const StoryCardSection = React.forwardRef<HTMLParagraphElement, StoryCardSectionProps>(
+  ({ className, variant, ...props }, forwardedRef) => {
+    const {
+      storyCardData: { sections },
+      orientation
+    } = useStoryCardContext();
     const firstSection = sections[0];
 
     return (
-      <Badge ref={forwardedRef} className={cn(className)} {...props}>
+      <p
+        ref={forwardedRef}
+        data-orientation={orientation}
+        className={cn(storyCardSectionVariants({ variant }), className)}
+        {...props}
+      >
         {firstSection.name}
-      </Badge>
+      </p>
     );
   }
 );
 StoryCardSection.displayName = "StoryCardSection";
 
-const StoryCardTitle = React.forwardRef<React.ElementRef<typeof Heading>, HeadingBaseProps>(
-  ({ className, weight = "h3", ...props }, forwardedRef) => {
-    const { headline, id } = useStoryCardContext();
+const StoryCardSectionAsBadge = React.forwardRef<React.ElementRef<typeof Badge>, BadgeBaseProps>(
+  ({ className, ...props }, forwardedRef) => {
+    const {
+      storyCardData: { sections },
+      orientation
+    } = useStoryCardContext();
+    const firstSection = sections[0];
 
     return (
-      <Link href={`/story/${id}`} className="line-clamp-2">
-        <Heading
-          ref={forwardedRef}
-          weight={weight}
-          className={cn("line-clamp-2 font-serif text-xl lg:text-2xl", className)}
-          {...props}
-        >
-          {headline}
-        </Heading>
-      </Link>
+      <Badge ref={forwardedRef} data-orientation={orientation} className={cn(className)} {...props}>
+        {firstSection.name}
+      </Badge>
+    );
+  }
+);
+StoryCardSectionAsBadge.displayName = "StoryCardSectionAsBadge";
+
+const StoryCardTitle = React.forwardRef<React.ElementRef<typeof Heading>, HeadingBaseProps>(
+  ({ className, weight = "h3", ...props }, forwardedRef) => {
+    const {
+      storyCardData: { headline },
+      orientation
+    } = useStoryCardContext();
+
+    return (
+      // <Link href={`/story/${id}`} className="line-clamp-2">
+      <Heading
+        ref={forwardedRef}
+        weight={weight}
+        className={cn("line-clamp-2 font-serif text-xl lg:text-2xl", className)}
+        data-orientation={orientation}
+        {...props}
+      >
+        {headline}
+      </Heading>
+      // </Link>
     );
   }
 );
@@ -100,10 +140,18 @@ StoryCardTitle.displayName = "StoryCardTitle";
 
 const StoryCardDescription = React.forwardRef<React.ElementRef<typeof Text>, TextBaseProps>(
   ({ className, ...props }, forwardedRef) => {
-    const { subheadline } = useStoryCardContext();
+    const {
+      storyCardData: { subheadline },
+      orientation
+    } = useStoryCardContext();
 
     return (
-      <Text ref={forwardedRef} className={cn("text-primary-muted line-clamp-2", className)} {...props}>
+      <Text
+        ref={forwardedRef}
+        className={cn("line-clamp-2 text-neutral-muted", className)}
+        data-orientation={orientation}
+        {...props}
+      >
         {subheadline}
       </Text>
     );
@@ -111,23 +159,45 @@ const StoryCardDescription = React.forwardRef<React.ElementRef<typeof Text>, Tex
 );
 StoryCardDescription.displayName = "StoryCardDescription";
 
-const StoryCardDescriptionWithReadMore = React.forwardRef<React.ElementRef<typeof Text>, TextBaseProps>(
+// const StoryCardDescriptionWithReadMore = React.forwardRef<React.ElementRef<typeof Text>, TextBaseProps>(
+//   ({ className, ...props }, forwardedRef) => {
+//     const { subheadline } = useStoryCardContext();
+
+//     return (
+//       <Text ref={forwardedRef} className={cn("line-clamp-3 text-neutral-muted", className)} {...props}>
+//         {subheadline}
+//       </Text>
+//     );
+//   }
+// );
+// StoryCardDescriptionWithReadMore.displayName = "StoryCardDescriptionWithReadMore";
+
+export interface StoryCardAuthorsProps extends React.ComponentPropsWithoutRef<"div"> {}
+
+const StoryCardAuthors = React.forwardRef<HTMLDivElement, StoryCardAuthorsProps>(
   ({ className, ...props }, forwardedRef) => {
-    const { subheadline } = useStoryCardContext();
+    const {
+      storyCardData: { authors },
+      orientation
+    } = useStoryCardContext();
 
     return (
-      <Text ref={forwardedRef} className={cn("text-primary-muted line-clamp-3", className)} {...props}>
-        {subheadline}
-      </Text>
+      <div
+        ref={forwardedRef}
+        className={cn(
+          "typography-paragraph-styles flex items-center gap-space-xxs text-sm font-medium text-neutral-muted",
+          className
+        )}
+        role="group"
+        data-orientation={orientation}
+        {...props}
+      >
+        By
+        <Authors authors={authors} />
+      </div>
     );
   }
 );
-StoryCardDescriptionWithReadMore.displayName = "StoryCardDescriptionWithReadMore";
-
-const StoryCardReadMore = React.forwardRef(() => {
-  return <div></div>;
-});
-StoryCardReadMore.displayName = "StoryCardReadMore";
 
 const getInitialsFromName = (name: string) => {
   return name
@@ -136,7 +206,7 @@ const getInitialsFromName = (name: string) => {
     .join("");
 };
 
-const Authors = ({ authors }: { authors: StoryCardProps["authors"] }) => {
+const Authors = ({ authors }: { authors: StoryCardProps["storyCardData"]["authors"] }) => {
   if (authors.length <= 1) {
     return (
       <Text className="line-clamp-1 w-full text-sm font-medium">
@@ -195,13 +265,17 @@ export interface StoryCardAuthorGroupProps extends React.ComponentPropsWithoutRe
 
 const StoryCardAuthorGroup = React.forwardRef<HTMLDivElement, StoryCardAuthorGroupProps>(
   ({ className, avatarGroupSize, ...props }, forwardedRef) => {
-    const { authors } = useStoryCardContext();
+    const {
+      storyCardData: { authors },
+      orientation
+    } = useStoryCardContext();
 
     return (
       <div
         ref={forwardedRef}
         className={cn("flex items-center gap-space-xs", className)}
         role="group"
+        data-orientation={orientation}
         {...props}
       >
         <HStack className="-space-x-4">
@@ -231,10 +305,19 @@ const StoryCardAuthorGroupWithPublishedTime = React.forwardRef<
   HTMLDivElement,
   StoryCardAuthorGroupWithPublishedTimeProps
 >(({ className, avatarGroupSize, ...props }, forwardedRef) => {
-  const { authors, ...storyData } = useStoryCardContext();
+  const {
+    storyCardData: { authors, ...storyData },
+    orientation
+  } = useStoryCardContext();
 
   return (
-    <div ref={forwardedRef} className={cn("flex gap-space-xs", className)} role="group" {...props}>
+    <div
+      ref={forwardedRef}
+      className={cn("flex gap-space-xs", className)}
+      role="group"
+      data-orientation={orientation}
+      {...props}
+    >
       <HStack className="-space-x-4">
         {authors.map(author => {
           return (
@@ -248,7 +331,7 @@ const StoryCardAuthorGroupWithPublishedTime = React.forwardRef<
       <VStack className="w-full">
         <Authors authors={authors} />
         <time
-          className="text-primary-muted font-mono text-sm"
+          className="font-mono text-sm text-neutral-muted"
           dateTime={new Date(storyData["published-at"]).toISOString()}
         >
           {new Date(storyData["published-at"]).toLocaleDateString("en-IN", {
@@ -272,10 +355,19 @@ const StoryCardAuthorGroupWithPublishedAndReadTime = React.forwardRef<
   HTMLDivElement,
   StoryCardAuthorGroupWithPublishedAndReadTimeProps
 >(({ className, avatarGroupSize, ...props }, forwardedRef) => {
-  const { authors, ...storyData } = useStoryCardContext();
+  const {
+    storyCardData: { authors, ...storyData },
+    orientation
+  } = useStoryCardContext();
 
   return (
-    <div ref={forwardedRef} className={cn("flex gap-space-xs", className)} role="group" {...props}>
+    <div
+      ref={forwardedRef}
+      className={cn("flex gap-space-xs", className)}
+      role="group"
+      data-orientation={orientation}
+      {...props}
+    >
       <HStack className="-space-x-4">
         {authors.map(author => {
           return (
@@ -288,7 +380,7 @@ const StoryCardAuthorGroupWithPublishedAndReadTime = React.forwardRef<
       </HStack>
       <VStack className="w-full">
         <Authors authors={authors} />
-        <HStack className="text-primary-muted">
+        <HStack className="text-neutral-muted">
           <time className="font-mono text-sm" dateTime={new Date(storyData["published-at"]).toISOString()}>
             {new Date(storyData["published-at"]).toLocaleDateString("en-IN", {
               year: "numeric",
@@ -297,7 +389,7 @@ const StoryCardAuthorGroupWithPublishedAndReadTime = React.forwardRef<
             })}
           </time>
           <Dot className="h-4 w-4" />
-          <Text className="text-primary-muted font-mono text-sm">12 min read</Text>
+          <Text className="font-mono text-sm text-neutral-muted">12 min read</Text>
         </HStack>
       </VStack>
     </div>
@@ -305,16 +397,79 @@ const StoryCardAuthorGroupWithPublishedAndReadTime = React.forwardRef<
 });
 StoryCardAuthorGroupWithPublishedAndReadTime.displayName = "StoryCardAuthorGroupWithPublishedAndReadTime";
 
+export interface StoryCardPublishedTimeProps extends React.ComponentPropsWithoutRef<"time"> {}
+
+const StoryCardPublishedTime = React.forwardRef<HTMLTimeElement, StoryCardPublishedTimeProps>(
+  ({ className, ...props }, forwardedRef) => {
+    const { storyCardData, orientation } = useStoryCardContext();
+
+    return (
+      <time
+        ref={forwardedRef}
+        className={cn("font-mono text-sm", className)}
+        data-orientation={orientation}
+        dateTime={new Date(storyCardData["published-at"]).toISOString()}
+        {...props}
+      >
+        {new Date(storyCardData["published-at"]).toLocaleDateString("en-IN", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        })}
+      </time>
+    );
+  }
+);
+StoryCardPublishedTime.displayName = "StoryCardPublishedTime";
+
+export interface StoryCardRelativePublishedTimeProps extends React.ComponentPropsWithoutRef<"time"> {
+  /**
+   * Adds 'Published' text
+   */
+  addPrefix?: boolean;
+
+  /**
+   * Adds 'ago' text
+   */
+  addSuffix?: boolean;
+}
+
+const StoryCardRelativePublishedTime = React.forwardRef<HTMLTimeElement, StoryCardRelativePublishedTimeProps>(
+  ({ className, addPrefix = true, addSuffix = true, ...props }, forwardedRef) => {
+    const { storyCardData, orientation } = useStoryCardContext();
+
+    return (
+      <p className="typography-paragraph-styles flex items-center gap-space-xxs text-sm font-medium text-neutral-muted">
+        {addPrefix ? "Published" : ""}
+        <time
+          ref={forwardedRef}
+          className={cn("", className)}
+          data-orientation={orientation}
+          dateTime={new Date(storyCardData["published-at"]).toISOString()}
+          {...props}
+        >
+          {formatDistance(new Date(storyCardData["published-at"]), new Date(), {
+            addSuffix: addSuffix
+          })}
+        </time>
+      </p>
+    );
+  }
+);
+StoryCardRelativePublishedTime.displayName = "StoryCardRelativePublishedTime";
+
 const StoryCardCompoundComponent = Object.assign({}, StoryCard, {
   Image: StoryCardImage,
   Section: StoryCardSection,
+  SectionAsBadge: StoryCardSectionAsBadge,
   Title: StoryCardTitle,
   Description: StoryCardDescription,
-  DescriptionWithReadMore: StoryCardDescriptionWithReadMore,
-  ReadMore: StoryCardReadMore,
+  Authors: StoryCardAuthors,
   AuthorGroup: StoryCardAuthorGroup,
   AuthorGroupWithPublishedTime: StoryCardAuthorGroupWithPublishedTime,
-  AuthorGroupWithPublishedTimeAndReadTime: StoryCardAuthorGroupWithPublishedAndReadTime
+  AuthorGroupWithPublishedTimeAndReadTime: StoryCardAuthorGroupWithPublishedAndReadTime,
+  PublishedTime: StoryCardPublishedTime,
+  RelativePublishedTime: StoryCardRelativePublishedTime
 });
 
 export { StoryCardCompoundComponent as StoryCard };

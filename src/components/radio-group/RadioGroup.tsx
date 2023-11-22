@@ -1,6 +1,8 @@
-import React, { useId } from "react";
+import React, { useState } from "react";
 
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+
+import _ from "lodash";
 
 import { cn } from "@/lib/utils";
 
@@ -33,8 +35,8 @@ const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   RadioGroupItemProps
 >(({ className, children, ...props }, forwardedRef) => {
-  const itemId = useId();
-  const labelId = useId();
+  const [itemId] = useState(() => _.uniqueId("newsable-radio-group-"));
+  const [labelId] = useState(() => _.uniqueId("newsable-radio-group-"));
 
   return (
     <div className="flex items-center gap-space-xs">
@@ -68,7 +70,6 @@ const RadioGroupIndicator = React.forwardRef<
     <RadioGroupPrimitive.Indicator
       ref={forwardedRef}
       className={cn(
-        // "overflow-hidden rounded-full border border-neutral-dark bg-component-neutral-dark",
         "relative flex h-full w-full items-center justify-center after:block after:h-3 after:w-3 after:rounded-[50%] after:bg-component-accent-solid-default after:content-['']",
         className
       )}
@@ -78,7 +79,7 @@ const RadioGroupIndicator = React.forwardRef<
 });
 RadioGroupIndicator.displayName = RadioGroupPrimitive.Indicator.displayName;
 
-const RadioGroupCompoundComponent = Object.assign(RadioGroup, {
+const RadioGroupCompoundComponent = Object.assign({}, RadioGroup, {
   Item: RadioGroupItem,
   Indicator: RadioGroupIndicator
 });

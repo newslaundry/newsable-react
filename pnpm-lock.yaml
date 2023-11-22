@@ -68,9 +68,18 @@ dependencies:
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
+  date-fns:
+    specifier: ^2.30.0
+    version: 2.30.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   lucide-react:
     specifier: ^0.292.0
     version: 0.292.0(react@18.2.0)
+  zustand:
+    specifier: ^4.4.6
+    version: 4.4.6(@types/react@18.2.35)(react@18.2.0)
 
 devDependencies:
   '@changesets/changelog-github':
@@ -86,8 +95,8 @@ devDependencies:
     specifier: ^18.1.0
     version: 18.1.0
   '@newsable/tailwind-preset':
-    specifier: ^2.0.0
-    version: 2.0.0(tailwindcss@3.3.5)
+    specifier: ^2.0.1
+    version: 2.0.1(tailwindcss@3.3.5)
   '@storybook/addon-a11y':
     specifier: ^7.5.2
     version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
@@ -133,6 +142,9 @@ devDependencies:
   '@types/jest-axe':
     specifier: ^3.5.7
     version: 3.5.7
+  '@types/lodash':
+    specifier: ^4.14.202
+    version: 4.14.202
   '@types/node':
     specifier: ^20.8.10
     version: 20.8.10
@@ -2436,8 +2448,8 @@ packages:
       tar-fs: 2.1.1
     dev: true
 
-  /@newsable/tailwind-preset@2.0.0(tailwindcss@3.3.5):
-    resolution: {integrity: sha512-Dolx+c7MFG1m6EQV0196Zok2jbiZ5enX9bT4orTilVatHw6UnRqwwo4QXMpSmnL0Io+MQV3/TNzU610v8av2NA==}
+  /@newsable/tailwind-preset@2.0.1(tailwindcss@3.3.5):
+    resolution: {integrity: sha512-KlsXGf7urgSRKjHksBeqsLOKvIwA6bCijhuiBPR3lgYPLlRh8MxRR572Lq8Hk7T+deAAP2OZL7HDUShVKaY59A==}
     peerDependencies:
       tailwindcss: ^2.0.0 || ^3.0.0
     dependencies:
@@ -4011,7 +4023,7 @@ packages:
       '@storybook/preview-api': 7.5.2
       '@storybook/theming': 7.5.2(react-dom@18.2.0)(react@18.2.0)
       '@storybook/types': 7.5.2
-      '@types/lodash': 4.14.200
+      '@types/lodash': 4.14.202
       color-convert: 2.0.1
       dequal: 2.0.3
       lodash: 4.17.21
@@ -4836,8 +4848,8 @@ packages:
     resolution: {integrity: sha512-U3PUjAudAdJBeC2pgN8uTIKgxrb4nlDF3SF0++EldXQvQBGkpFZMSnwQiIoDU77tv45VgNkl/L4ouD+rEomujw==}
     dev: true
 
-  /@types/lodash@4.14.200:
-    resolution: {integrity: sha512-YI/M/4HRImtNf3pJgbF+W6FrXovqj+T+/HpENLTooK9PnkacBsDpeP3IpHab40CClUfhNmdM2WTNP2sa2dni5Q==}
+  /@types/lodash@4.14.202:
+    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
     dev: true
 
   /@types/mdx@2.0.9:
@@ -6329,6 +6341,13 @@ packages:
   /dataloader@1.4.0:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
     dev: true
+
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.23.2
+    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -8718,7 +8737,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -11470,6 +11488,14 @@ packages:
       react: 18.2.0
       tslib: 2.6.2
 
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
@@ -11985,3 +12011,23 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
+
+  /zustand@4.4.6(@types/react@18.2.35)(react@18.2.0):
+    resolution: {integrity: sha512-Rb16eW55gqL4W2XZpJh0fnrATxYEG3Apl2gfHTyDSE965x/zxslTikpNch0JgNjJA9zK6gEFW8Fl6d1rTZaqgg==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.2.35
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false

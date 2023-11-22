@@ -6,7 +6,7 @@ import { VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-export const toggleVariants = cva("flex items-center justify-center rounded border shadow", {
+export const toggleVariants = cva("flex items-center justify-center rounded border", {
   variants: {
     variant: {
       neutral:
@@ -16,13 +16,13 @@ export const toggleVariants = cva("flex items-center justify-center rounded bord
     },
     size: {
       sm: "h-8 px-3 text-sm font-normal",
-      md: "h-10 px-4 py-3 text-base font-medium",
+      base: "h-10 px-4 py-3 text-base font-medium",
       lg: "h-12 px-6 text-lg font-medium"
     }
   },
   defaultVariants: {
     variant: "neutral",
-    size: "md"
+    size: "base"
   }
 });
 

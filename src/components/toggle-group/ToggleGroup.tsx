@@ -13,7 +13,7 @@ const ToggleGroup = React.forwardRef<
   return (
     <ToggleGroupPrimitive.Root
       ref={forwardedRef}
-      className={cn("bg-component-primary-default inline-flex rounded", className)}
+      className={cn("inline-flex rounded bg-component-neutral-default", className)}
       {...props}
     >
       {children}
@@ -32,7 +32,9 @@ const ToggleGroupItem = React.forwardRef<
     <ToggleGroupPrimitive.Item
       ref={forwardedRef}
       className={cn(
-        "data-[state=off]:border-primary-default data-[state=off]:bg-component-primary-default data-[state=off]:text-primary-muted data-[state=off]:focus-ring-primary data-[state=off]:hover:bg-component-primary-hover flex h-10 items-center justify-center border px-4 py-3 text-base font-medium first:rounded-l last:rounded-r focus:z-10 data-[state=on]:border-accent-default data-[state=on]:bg-component-accent-pressed data-[state=on]:text-accent-muted data-[state=on]:focus-ring-accent data-[state=on]:hover:bg-component-accent-dark",
+        "flex items-center justify-center border text-base font-medium component-padding-base first:rounded-l last:rounded-r focus:z-10",
+        "data-[state=off]:border-neutral-default data-[state=off]:bg-component-neutral-default data-[state=off]:text-neutral-muted data-[state=off]:focus-ring-neutral data-[state=off]:hover:bg-component-neutral-hover",
+        "data-[state=on]:border-accent-default data-[state=on]:bg-component-accent-pressed data-[state=on]:text-accent-muted data-[state=on]:focus-ring-accent data-[state=on]:hover:bg-component-accent-dark",
         className
       )}
       {...props}

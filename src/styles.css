@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .horizontal-story-card-grid {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+  }
+}

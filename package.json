@@ -73,14 +73,17 @@
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-visually-hidden": "^1.0.3",
     "class-variance-authority": "^0.7.0",
-    "lucide-react": "^0.292.0"
+    "date-fns": "^2.30.0",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.292.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
-    "@newsable/tailwind-preset": "^2.0.0",
+    "@newsable/tailwind-preset": "^2.0.1",
     "@storybook/addon-a11y": "^7.5.2",
     "@storybook/addon-essentials": "^7.5.2",
     "@storybook/addon-interactions": "^7.5.2",
@@ -96,6 +99,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@trivago/prettier-plugin-sort-imports": "^4.2.1",
     "@types/jest-axe": "^3.5.7",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20.8.10",
     "@types/react": "^18.2.35",
     "@types/react-dom": "^18.2.14",

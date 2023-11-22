@@ -44,7 +44,7 @@ describe("Accessibility Testing (WAI-ARIA Roles, States, and Properties):", () =
     const user = userEvent.setup();
 
     await user.click(screen.getByRole("button"));
-    expect(screen.getByRole("dialog")).toContainHTML(screen.getByLabelText("Close").innerHTML);
+    expect(screen.getByRole("dialog")).toContainHTML(screen.getByLabelText("Close button").innerHTML);
   });
 
   test("The Popover container element has aria-modal set to true when opened", async () => {
@@ -65,7 +65,7 @@ describe("Accessibility Testing (Keyboard Interaction):", () => {
     const user = userEvent.setup();
 
     await user.click(screen.getByRole("button"));
-    expect(screen.getByLabelText("Close")).toHaveFocus();
+    expect(screen.getByLabelText("Close button")).toHaveFocus();
   });
 
   test("Pressing Space opens/closes the popover", async () => {
