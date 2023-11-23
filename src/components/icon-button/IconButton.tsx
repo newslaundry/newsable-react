@@ -7,7 +7,7 @@ import { Loader2 as Spinner } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-export const buttonVariants = cva(
+export const iconButtonVariants = cva(
   "pointer-events-auto flex cursor-pointer items-center justify-center gap-space-xs rounded outline-none transition-all disabled:cursor-not-allowed disabled:opacity-75",
   {
     variants: {
@@ -28,9 +28,9 @@ export const buttonVariants = cva(
           "border border-transparent text-neutral-muted focus-ring-neutral active:bg-component-neutral-pressed hover:bg-component-neutral-hover"
       },
       size: {
-        sm: "text-sm font-normal component-padding-sm",
-        base: "text-base font-medium component-padding-base",
-        lg: "text-lg font-medium component-padding-lg"
+        sm: "min-h-[30px] text-sm font-normal component-padding-sm",
+        base: "min-h-[42px] text-base font-medium component-padding-base",
+        lg: "min-h-[52px] text-lg font-medium component-padding-lg"
       }
     },
     defaultVariants: {
@@ -40,10 +40,16 @@ export const buttonVariants = cva(
   }
 );
 
-export interface ButtonBaseProps
+export interface IconButtonBaseProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+    VariantProps<typeof iconButtonVariants> {
   isLoading?: boolean;
+
+  /**
+   * Label describing the button
+   * To be used as 'aria-label'
+   */
+  label: string;
 }
 
 /**
@@ -52,16 +58,17 @@ export interface ButtonBaseProps
  * Follows Button a11y pattern
  * @see https://www.w3.org/WAI/ARIA/apg/patterns/button/
  */
-const Button = React.forwardRef<HTMLButtonElement, ButtonBaseProps>(
-  ({ variant, size, children, disabled, isLoading, className, ...props }, forwardedRef) => {
+const IconButton = React.forwardRef<HTMLButtonElement, IconButtonBaseProps>(
+  ({ variant, size, children, disabled, isLoading, label, className, ...props }, forwardedRef) => {
     const shouldBeDisabled = disabled || isLoading;
 
     return (
       <button
         ref={forwardedRef}
-        className={cn(buttonVariants({ variant, size }), "cursor-pointer", className)}
+        className={cn(iconButtonVariants({ variant, size }), "cursor-pointer", className)}
         disabled={shouldBeDisabled}
         data-loading={isLoading ? "true" : undefined}
+        aria-label={label}
         aria-disabled={shouldBeDisabled ? true : false}
         {...props}
       >
@@ -77,6 +84,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonBaseProps>(
     );
   }
 );
-Button.displayName = "Button";
+IconButton.displayName = "IconButton";
 
-export { Button };
+export { IconButton };

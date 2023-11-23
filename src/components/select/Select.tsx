@@ -20,7 +20,7 @@ const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.T
       <SelectPrimitive.Trigger
         ref={forwardedRef}
         className={cn(
-          "flex w-full min-w-[220px] max-w-lg appearance-none items-center justify-between gap-space-xs rounded border border-neutral-default bg-neutral-default text-base text-neutral-default focus-ring-neutral component-padding-base disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75 data-[placeholder]:text-neutral-muted",
+          "flex w-full min-w-[220px] max-w-lg appearance-none items-center justify-between gap-space-xs rounded border border-neutral-default bg-neutral-default text-base text-neutral-default focus-ring-neutral component-padding-base data-[placeholder]:text-neutral-muted disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75",
           className
         )}
         {...props}
@@ -42,8 +42,7 @@ const SelectValue = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Val
     return (
       <SelectPrimitive.Value
         ref={forwardedRef}
-        className="typography-paragraph-styles"
-        // className={cn("typography-paragraph-styles", className)}
+        className={cn("typography-paragraph-styles", className)}
         {...props}
       >
         {children}
@@ -102,7 +101,7 @@ const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.C
           ref={forwardedRef}
           position={position}
           className={cn(
-            "relative z-50 max-h-96 min-w-[5rem] overflow-hidden rounded border border-neutral-default bg-neutral-default text-neutral-default shadow component-padding-base",
+            "relative z-50 max-h-96 min-w-[5rem] overflow-hidden rounded border border-neutral-default bg-neutral-default p-space-xs text-neutral-default shadow",
             position === "popper" &&
               "h-full max-h-[var(--radix-select-content-available-height)] w-[var(--radix-select-trigger-width)]",
             className

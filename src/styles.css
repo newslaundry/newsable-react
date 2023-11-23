@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .react-tel-input input.input-wrapper {
+    @apply flex h-10 w-full appearance-none rounded border border-neutral-default bg-neutral-default py-2 pl-16 pr-3 text-base text-neutral-default focus-ring-neutral placeholder:text-neutral-muted disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75 invalid:focus:focus-ring-danger;
+  }
+
+  .react-tel-input div.flag-dropdown {
+    @apply border border-neutral-default bg-component-neutral-default active:bg-component-neutral-pressed hover:bg-component-neutral-hover;
+  }
+
+  .react-tel-input div.flag-dropdown div.selected-flag {
+    @apply flex w-12 items-center justify-center bg-component-neutral-default p-2 pr-4 active:bg-component-neutral-pressed hover:bg-component-neutral-hover;
+  }
+
+  .react-tel-input div.flag-dropdown.open div.selected-flag {
+    @apply bg-component-neutral-pressed;
+  }
+
+  .react-tel-input div.flag-dropdown.open ul.country-list {
+    @apply w-full min-w-max max-w-[448px] rounded border border-neutral-default shadow;
+  }
+
+  .react-tel-input ul.country-list li.search {
+    @apply px-3 py-2;
+  }
+
+  .react-tel-input ul.country-list li.search input.search-box {
+    @apply m-0 h-10 w-full appearance-none rounded border border-neutral-default bg-neutral-default text-base text-neutral-default focus-ring-neutral placeholder:text-neutral-muted disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75 invalid:focus:focus-ring-danger;
+  }
+}
+
 @layer utilities {
   .horizontal-story-card-grid {
     display: grid;

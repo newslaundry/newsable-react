@@ -24,9 +24,7 @@ export const Primary: Story = {
           <Select.Label>Fruits</Select.Label>
           <Select.Item value="apple">Apple</Select.Item>
           <Select.Item value="banana">Banana</Select.Item>
-          <Select.Item value="blueberry" disabled>
-            Blueberry
-          </Select.Item>
+          <Select.Item value="blueberry">Blueberry</Select.Item>
           <Select.Item value="grapes">Grapes</Select.Item>
           <Select.Item value="pineapple">Pineapple</Select.Item>
         </Select.Group>

@@ -151,6 +151,7 @@ const config = {
   },
   plugins: [
     animatePlugin,
+    require("tailwindcss-react-aria-components"),
     plugin(({ matchUtilities }) => {
       matchUtilities({
         perspective: value => ({
