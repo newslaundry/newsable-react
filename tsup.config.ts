@@ -6,7 +6,7 @@ export default defineConfig({
   format: ["esm", "cjs"],
   dts: true,
   target: "esnext",
-  external: ["react"],
+  external: ["react", "tailwind-merge", "clsx"],
   platform: "node",
   clean: true,
   splitting: true,
