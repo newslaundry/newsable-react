@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 2.0.1
+
+### Patch Changes
+
+- [`8f52c4e`](https://github.com/newslaundry/newsable-react/commit/8f52c4ee299b7d975805101c77782f687dd4bcdf) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - removed twmerge and clsx from build step
+
 ## 2.0.0
 
 ### Major Changes
