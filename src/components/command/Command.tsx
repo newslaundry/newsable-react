@@ -51,7 +51,7 @@ const CommandInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.I
   ({ className, children, ...props }, forwardedRef) => {
     return (
       <div
-        className="flex items-center space-x-2 border-b border-neutral-default text-neutral-default component-padding-base"
+        className="flex items-center space-x-space-xs border-b border-neutral-default text-neutral-default component-padding-base"
         cmdk-input-wrapper=""
       >
         <Search className="h-4 w-4" aria-hidden="true" />
@@ -95,7 +95,7 @@ const CommandEmpty = React.forwardRef<React.ElementRef<typeof CommandPrimitive.E
     return (
       <CommandPrimitive.Empty
         ref={forwardedRef}
-        className={cn("py-6 text-center text-sm text-neutral-muted", className)}
+        className={cn("py-space-2xl text-center text-sm text-neutral-muted", className)}
         {...props}
       />
     );

@@ -30,15 +30,17 @@ export const DropdownDemo = () => {
             <Text className="w-full truncate text-sm font-medium">rishabh@newslaundry.com</Text>
           </VStack>
         </Dropdown.Header>
-        <Dropdown.Label>Settings</Dropdown.Label>
-        <Dropdown.Item icon={<User className="h-4 w-4" />} shortcutKey="P">
-          My account
-        </Dropdown.Item>
-        <Dropdown.Item icon={<AccessibilityPerson className="h-4 w-4" />} shortcutKey="A">
-          Accessibility
-        </Dropdown.Item>
-        <Dropdown.Item icon={<ShoppingCart className="h-4 w-4" />}>Store purchases</Dropdown.Item>
-        <Dropdown.Item icon={<Bookmark className="h-4 w-4" />}>Saved stories</Dropdown.Item>
+        <Dropdown.Group>
+          <Dropdown.Label>Settings</Dropdown.Label>
+          <Dropdown.Item icon={<User className="h-4 w-4" />} shortcutKey="P">
+            My account
+          </Dropdown.Item>
+          <Dropdown.Item icon={<AccessibilityPerson className="h-4 w-4" />} shortcutKey="A">
+            Accessibility
+          </Dropdown.Item>
+          <Dropdown.Item icon={<ShoppingCart className="h-4 w-4" />}>Store purchases</Dropdown.Item>
+          <Dropdown.Item icon={<Bookmark className="h-4 w-4" />}>Saved stories</Dropdown.Item>
+        </Dropdown.Group>
         <Dropdown.SubMenu>
           <Dropdown.SubTrigger icon={<Menu className="h-4 w-4" aria-hidden={true} />}>
             Sub-menu
@@ -50,28 +52,33 @@ export const DropdownDemo = () => {
           </Dropdown.SubContent>
         </Dropdown.SubMenu>
         <Dropdown.Separator />
-        <Dropdown.Label>Theme</Dropdown.Label>
-        {/* onValueChange={t => setTheme(t)} */}
-        <Dropdown.RadioGroup value={"system"}>
-          <Dropdown.RadioItem
-            value="system"
-            trailingIcon={<Monitor aria-hidden="true" className="h-4 w-4" />}
-          >
-            System
-          </Dropdown.RadioItem>
-          <Dropdown.RadioItem value="light" trailingIcon={<Sun aria-hidden="true" className="h-4 w-4" />}>
-            Light
-          </Dropdown.RadioItem>
-          <Dropdown.RadioItem value="dark" trailingIcon={<Moon aria-hidden="true" className="h-4 w-4" />}>
-            Dark
-          </Dropdown.RadioItem>
-        </Dropdown.RadioGroup>
+        <Dropdown.Group>
+          <Dropdown.Label>Theme</Dropdown.Label>
+          {/* onValueChange={t => setTheme(t)} */}
+          <Dropdown.RadioGroup value={"system"}>
+            <Dropdown.RadioItem
+              value="system"
+              trailingIcon={<Monitor aria-hidden="true" className="h-4 w-4" />}
+            >
+              System
+            </Dropdown.RadioItem>
+            <Dropdown.RadioItem value="light" trailingIcon={<Sun aria-hidden="true" className="h-4 w-4" />}>
+              Light
+            </Dropdown.RadioItem>
+            <Dropdown.RadioItem value="dark" trailingIcon={<Moon aria-hidden="true" className="h-4 w-4" />}>
+              Dark
+            </Dropdown.RadioItem>
+          </Dropdown.RadioGroup>
+        </Dropdown.Group>
         <Dropdown.Separator />
         <Dropdown.Label>Preferences</Dropdown.Label>
         <Dropdown.CheckboxItem checked={true}>Show Paywall</Dropdown.CheckboxItem>
-        <Dropdown.CheckboxItem checked={true}>Show Popups</Dropdown.CheckboxItem>
+        <Dropdown.CheckboxItem checked={false}>Show Popups</Dropdown.CheckboxItem>
         <Dropdown.Separator />
-        <Dropdown.Item icon={<LogOut className="h-4 w-4" />} className="text-danger-muted">
+        <Dropdown.Item
+          icon={<LogOut className="h-4 w-4" />}
+          className="text-danger-muted data-[highlighted]:bg-component-danger-hover"
+        >
           Log Out
         </Dropdown.Item>
       </Dropdown.Content>

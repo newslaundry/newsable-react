@@ -37,7 +37,7 @@ const MultiSelect = ({ value, setValue, items }: MultiSelectBaseProps<Value>) =>
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-lg flex-col items-start justify-center gap-2 p-4">
+    <div className="mx-auto flex w-full max-w-lg flex-col items-start justify-center gap-2">
       <SelectProvider value={value} setValue={setValue}>
         <SelectLabel>Favourite food</SelectLabel>
         <Select

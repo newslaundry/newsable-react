@@ -25,10 +25,8 @@ const DropdownTrigger = React.forwardRef<
   return (
     <DropdownMenuPrimitive.Trigger
       ref={forwardedRef}
-      className={cn(
-        // "pointer-events-auto flex items-center justify-center gap-space-xs rounded text-neutral-default transition-all duration-default focus-ring-neutral component-padding-base focus:outline-none disabled:cursor-not-allowed disabled:opacity-75",
-        className
-      )}
+      // "pointer-events-auto flex items-center justify-center gap-space-xs rounded text-neutral-default transition-all duration-default focus-ring-neutral component-padding-base focus:outline-none disabled:cursor-not-allowed disabled:opacity-75",
+      className={cn(className)}
       {...props}
     >
       {children}
@@ -56,7 +54,9 @@ const DropdownContent = React.forwardRef<
       <DropdownMenuPrimitive.Content
         ref={forwardedRef}
         className={cn(
-          "data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade flex w-full min-w-[220px] max-w-[240px] flex-col rounded border border-neutral-default bg-neutral-default p-2 shadow will-change-[opacity,transform]",
+          "flex w-full min-w-[220px] flex-col rounded border border-neutral-default bg-neutral-default p-space-xs shadow will-change-[opacity,transform]",
+          "data-[state=closed]:data-[side=bottom]:animate-slideUpAndFadeHide data-[state=closed]:data-[side=left]:animate-slideRightAndFadeHide data-[state=closed]:data-[side=right]:animate-slideLeftAndFadeHide data-[state=closed]:data-[side=top]:animate-slideDownAndFadeHide",
+          "data-[state=open]:data-[side=bottom]:animate-slideUpAndFadeShow data-[state=open]:data-[side=left]:animate-slideRightAndFadeShow data-[state=open]:data-[side=right]:animate-slideLeftAndFadeShow data-[state=open]:data-[side=top]:animate-slideDownAndFadeShow",
           className
         )}
         {...props}
@@ -97,7 +97,7 @@ const DropdownItem = React.forwardRef<React.ElementRef<typeof DropdownMenuPrimit
       <DropdownMenuPrimitive.Item
         ref={forwardedRef}
         className={cn(
-          "group relative flex h-8 select-none items-center rounded px-2 py-4 text-sm leading-none text-neutral-default outline-none data-[disabled]:pointer-events-none data-[disabled]:cursor-not-allowed data-[disabled]:bg-neutral-muted data-[highlighted]:bg-component-neutral-hover data-[disabled]:text-neutral-muted",
+          "group relative flex select-none items-center rounded text-sm text-neutral-default outline-none component-padding-base data-[disabled]:pointer-events-none data-[disabled]:cursor-not-allowed data-[disabled]:bg-neutral-muted data-[highlighted]:bg-component-neutral-hover data-[disabled]:text-neutral-muted",
           className
         )}
         {...props}
@@ -161,7 +161,9 @@ const DropdownCheckboxItem = React.forwardRef<
     <DropdownMenuPrimitive.CheckboxItem
       ref={forwardedRef}
       className={cn(
-        "group relative flex h-8 select-none items-center justify-between rounded px-2 py-4 text-sm leading-none text-neutral-default outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-component-neutral-hover data-[state=unchecked]:pl-8 data-[disabled]:text-neutral-muted data-[state=checked]:text-accent-muted",
+        "group relative flex h-8 select-none items-center justify-between rounded px-2 py-4 text-sm leading-none text-neutral-default outline-none data-[disabled]:pointer-events-none data-[disabled]:text-neutral-muted data-[state=checked]:text-accent-muted",
+        "data-[state=unchecked]:data-[highlighted]:bg-component-neutral-hover data-[state=unchecked]:pl-8",
+        "data-[state=checked]:data-[highlighted]:bg-component-accent-hover",
         className
       )}
       {...props}
@@ -204,7 +206,9 @@ const DropdownRadioItem = React.forwardRef<
     <DropdownMenuPrimitive.RadioItem
       ref={forwardedRef}
       className={cn(
-        "relative flex h-8 select-none items-center justify-between rounded px-2 py-4 text-sm leading-none text-neutral-default outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-component-neutral-hover data-[state=unchecked]:pl-8 data-[disabled]:text-neutral-muted data-[state=checked]:text-accent-muted",
+        "relative flex h-8 select-none items-center justify-between rounded px-2 py-4 text-sm leading-none text-neutral-default outline-none data-[disabled]:pointer-events-none  data-[disabled]:text-neutral-muted",
+        "data-[state=unchecked]:data-[highlighted]:bg-component-neutral-hover data-[state=unchecked]:pl-8",
+        "data-[state=checked]:data-[highlighted]:bg-component-accent-hover data-[state=checked]:text-accent-muted",
         className
       )}
       {...props}
@@ -281,7 +285,9 @@ const DropdownSubContent = React.forwardRef<
     <DropdownMenuPrimitive.SubContent
       ref={forwardedRef}
       className={cn(
-        "data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade min-w-[220px] rounded border border-neutral-default bg-neutral-default p-2 shadow will-change-[opacity,transform]",
+        "min-w-[220px] rounded border border-neutral-default bg-neutral-default p-2 shadow will-change-[opacity,transform]",
+        "data-[state=closed]:data-[side=bottom]:animate-slideUpAndFadeHide data-[state=closed]:data-[side=left]:animate-slideRightAndFadeHide data-[state=closed]:data-[side=right]:animate-slideLeftAndFadeHide data-[state=closed]:data-[side=top]:animate-slideDownAndFadeHide",
+        "data-[state=open]:data-[side=bottom]:animate-slideUpAndFadeShow data-[state=open]:data-[side=left]:animate-slideRightAndFadeShow data-[state=open]:data-[side=right]:animate-slideLeftAndFadeShow data-[state=open]:data-[side=top]:animate-slideDownAndFadeShow",
         className
       )}
       {...props}
