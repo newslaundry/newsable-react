@@ -13,19 +13,19 @@ export const iconButtonVariants = cva(
     variants: {
       variant: {
         neutral:
-          "border border-neutral-default bg-component-neutral-default text-neutral-muted focus-ring-neutral active:bg-component-neutral-pressed hover:bg-component-neutral-hover",
+          "border border-neutral-default bg-component-neutral-default text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover active:bg-component-neutral-pressed",
         accent:
-          "border border-accent-default bg-component-accent-default text-accent-muted focus-ring-accent active:bg-component-accent-pressed hover:bg-component-accent-hover",
+          "border border-accent-default bg-component-accent-default text-accent-muted focus-ring-accent hover:bg-component-accent-hover active:bg-component-accent-pressed",
         danger:
-          "border border-danger-default bg-component-danger-default text-danger-muted focus-ring-danger active:bg-component-danger-pressed hover:bg-component-danger-hover",
+          "border border-danger-default bg-component-danger-default text-danger-muted focus-ring-danger hover:bg-component-danger-hover active:bg-component-danger-pressed",
         attention:
-          "border border-attention-default bg-component-attention-default text-attention-muted focus-ring-attention active:bg-component-attention-pressed hover:bg-component-attention-hover",
+          "border border-attention-default bg-component-attention-default text-attention-muted focus-ring-attention hover:bg-component-attention-hover active:bg-component-attention-pressed",
         success:
-          "border border-success-default bg-component-success-default text-success-muted focus-ring-success active:bg-component-success-pressed hover:bg-component-success-hover",
+          "border border-success-default bg-component-success-default text-success-muted focus-ring-success hover:bg-component-success-hover active:bg-component-success-pressed",
         outline:
-          "border border-neutral-default bg-transparent text-neutral-muted focus-ring-neutral active:bg-component-neutral-pressed hover:bg-component-neutral-hover",
+          "border border-neutral-default bg-transparent text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover active:bg-component-neutral-pressed",
         ghost:
-          "border border-transparent text-neutral-muted focus-ring-neutral active:bg-component-neutral-pressed hover:bg-component-neutral-hover"
+          "border border-transparent text-neutral-muted focus-ring-neutral hover:bg-component-neutral-hover active:bg-component-neutral-pressed"
       },
       size: {
         sm: "min-h-[30px] text-sm font-normal component-padding-sm",

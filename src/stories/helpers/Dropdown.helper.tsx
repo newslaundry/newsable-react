@@ -26,7 +26,7 @@ export const DropdownDemo = () => {
       <Dropdown.Content sideOffset={4} align="end" className="z-50">
         <Dropdown.Header>
           <VStack className="w-full gap-1">
-            <Text className="text-primary-muted text-xs font-medium">Welcome,</Text>
+            <Text className="text-xs font-medium text-neutral-muted">Welcome,</Text>
             <Text className="w-full truncate text-sm font-medium">rishabh@newslaundry.com</Text>
           </VStack>
         </Dropdown.Header>

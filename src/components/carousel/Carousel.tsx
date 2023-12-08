@@ -128,7 +128,7 @@ const CarouselButtonIndicators = React.forwardRef<HTMLDivElement, CarouselButton
         )}
         {...props}
       >
-        <div className="flex items-center justify-center gap-space-xs rounded-full bg-component-neutral-default/25 component-padding-sm">
+        <div className="bg-component-neutral-default/25 flex items-center justify-center gap-space-xs rounded-full component-padding-sm">
           {children}
         </div>
       </div>

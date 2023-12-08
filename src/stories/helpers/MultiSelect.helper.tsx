@@ -71,7 +71,7 @@ export const AriakitDemo = () => {
         <SelectLabel>Favourite food</SelectLabel>
         <Select
           className={cn(
-            "group flex w-full min-w-[220px] max-w-lg appearance-none items-center justify-between gap-space-xs rounded border border-neutral-default bg-neutral-default text-base text-neutral-default focus-ring-neutral component-padding-base data-[placeholder]:text-neutral-muted disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75"
+            "group flex w-full min-w-[220px] max-w-lg appearance-none items-center justify-between gap-space-xs rounded border border-neutral-default bg-neutral-default text-base text-neutral-default focus-ring-neutral component-padding-base disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75 data-[placeholder]:text-neutral-muted"
           )}
         >
           {renderValue(value)}
@@ -92,7 +92,7 @@ export const AriakitDemo = () => {
               value={val}
               className={cn(
                 "relative flex select-none scroll-m-space-sm items-center gap-space-xs rounded text-base text-neutral-default component-padding-base",
-                "data-[active-item]:bg-component-neutral-hover hover:bg-component-neutral-hover",
+                "hover:bg-component-neutral-hover data-[active-item]:bg-component-neutral-hover",
                 "focus-visible:ring focus-visible:ring-neutral",
                 "data-[disabled]:pointer-events-none data-[disabled]:cursor-not-allowed data-[disabled]:bg-component-neutral-default data-[disabled]:text-neutral-muted data-[highlighted]:outline-none"
               )}

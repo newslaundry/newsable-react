@@ -19,7 +19,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxBaseProps>(
           ref={forwardedRef}
           store={comboboxStore}
           className={cn(
-            "flex w-full appearance-none rounded border border-neutral-default bg-neutral-default text-neutral-default focus-ring-neutral component-padding-base placeholder:text-neutral-muted disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75 invalid:focus:focus-ring-danger",
+            "flex w-full appearance-none rounded border border-neutral-default bg-neutral-default text-neutral-default focus-ring-neutral component-padding-base placeholder:text-neutral-muted invalid:focus:focus-ring-danger disabled:cursor-not-allowed disabled:bg-component-neutral-default disabled:opacity-75",
             className
           )}
           {...props}
