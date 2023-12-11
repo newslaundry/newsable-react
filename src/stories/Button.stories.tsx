@@ -19,6 +19,9 @@ const meta: Meta<typeof Button> = {
       control: { type: "radio" },
       defaultValue: "base",
       description: "The size of the Button component"
+    },
+    isLoading: {
+      type: "boolean"
     }
   }
 };

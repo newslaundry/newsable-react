@@ -1,13 +1,12 @@
 import React from "react";
 
-import "@radix-ui/react-accordion";
+import * as VisuallyHiddenPrimitive from "@radix-ui/react-visually-hidden";
 
 import { VariantProps, cva } from "class-variance-authority";
 import { Loader2 as Spinner } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-// ! TO FIX - variants are not getting exported
 export const buttonVariants = cva(
   "pointer-events-auto flex cursor-pointer items-center justify-center gap-space-xs rounded outline-none transition-all disabled:cursor-not-allowed disabled:opacity-75",
   {
@@ -44,7 +43,7 @@ export const buttonVariants = cva(
 export interface ButtonBaseProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  loading?: boolean;
+  isLoading?: boolean;
 }
 
 /**
@@ -54,19 +53,26 @@ export interface ButtonBaseProps
  * @see https://www.w3.org/WAI/ARIA/apg/patterns/button/
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonBaseProps>(
-  ({ variant, size, children, disabled, loading, className, ...props }, forwardedRef) => {
-    const shouldBeDisabled = disabled || loading;
+  ({ variant, size, children, disabled, isLoading, className, ...props }, forwardedRef) => {
+    const shouldBeDisabled = disabled || isLoading;
 
     return (
       <button
         ref={forwardedRef}
         className={cn(buttonVariants({ variant, size }), "cursor-pointer", className)}
         disabled={shouldBeDisabled}
-        data-loading={loading ? true : false}
+        data-loading={isLoading ? "true" : undefined}
         aria-disabled={shouldBeDisabled ? true : false}
         {...props}
       >
-        {loading ? <Spinner className="h-4 w-4 animate-spin" /> : children}
+        {isLoading ? (
+          <>
+            <Spinner className="h-4 w-4 animate-spin" aria-hidden="true" />
+            <VisuallyHiddenPrimitive.Root>Loading...</VisuallyHiddenPrimitive.Root>
+          </>
+        ) : (
+          children
+        )}
       </button>
     );
   }

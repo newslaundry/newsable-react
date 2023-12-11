@@ -1,14 +1,8 @@
 import React from "react";
 
-import resolveConfig from "tailwindcss/resolveConfig";
-
 import { Accordion } from "@/components";
 
-import twconf from "../../../tailwind.config";
-
 const AccordionHelper = () => {
-  const conf = resolveConfig(twconf);
-
   return (
     <Accordion type="single" collapsible={true} defaultValue="item-1" className="mx-auto w-full max-w-2xl">
       <Accordion.Item value="item-1">

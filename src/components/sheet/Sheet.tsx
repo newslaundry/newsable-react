@@ -35,7 +35,7 @@ const SheetOverlay = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Ove
       <SheetPrimitive.Overlay
         ref={forwardedRef}
         className={cn(
-          "fixed inset-0 z-50 bg-overlay data-[state=closed]:animate-overlayHide data-[state=open]:animate-overlayShow",
+          "bg-overlay fixed inset-0 z-50 data-[state=closed]:animate-overlayHide data-[state=open]:animate-overlayShow",
           className
         )}
         {...props}

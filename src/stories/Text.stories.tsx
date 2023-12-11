@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Text>;
 
 export const Default: Story = {
   render: () => (
-    <Text className="text-primary-default mx-auto max-w-md">
+    <Text className="mx-auto max-w-md text-neutral-default">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime impedit magnam dolores possimus earum,
       sapiente est asperiores officiis, ad nam, ullam nisi praesentium sed illo doloremque voluptates vitae
       nemo eveniet!
@@ -25,7 +25,7 @@ export const Default: Story = {
 
 export const Muted: Story = {
   render: () => (
-    <Text className="text-primary-muted mx-auto max-w-md">
+    <Text className="mx-auto max-w-md text-neutral-muted">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime impedit magnam dolores possimus earum,
       sapiente est asperiores officiis, ad nam, ullam nisi praesentium sed illo doloremque voluptates vitae
       nemo eveniet!
