@@ -1,5 +1,11 @@
 # @newsable/react
 
+## 2.1.0
+
+### Minor Changes
+
+- [#15](https://github.com/newslaundry/newsable-react/pull/15) [`a4c2115c3678ccd056517d02a131371f4e24f7f8`](https://github.com/newslaundry/newsable-react/commit/a4c2115c3678ccd056517d02a131371f4e24f7f8) Thanks [@nl-rishabh](https://github.com/nl-rishabh)! - New primitives - PhoneInput, PinInput, ScrollArea, Toast etc and refactored multiple existing primitives
+
 ## 2.0.1
 
 ### Patch Changes
